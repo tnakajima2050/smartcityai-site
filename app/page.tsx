@@ -9,7 +9,7 @@ export default function Home() {
             SMART CITY AI LLC
           </p>
           <h1 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-            AIで、人と都市の未来をデザインする。
+            AIで、人と都市の未来をデザインする
           </h1>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-zinc-600">
             Smart City AI LLC は、スマートシティ・都市計画・AI/データ活用の知見を組み合わせ、
