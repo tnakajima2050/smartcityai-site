@@ -1,4 +1,3 @@
-
 export default function Home() {
   return (
     <main className="min-h-screen bg-zinc-50 text-zinc-900">
@@ -12,8 +11,9 @@ export default function Home() {
             AIで、人と都市の未来をデザインする
           </h1>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-zinc-600">
-            Smart City AI LLC は、スマートシティ・都市計画・AI/データ活用の知見を組み合わせ、
-            日本と世界の都市・企業・クリエイターを支援するブティック型コンサルティングファームです。
+            AIとデジタルの力で、人と街の可能性を広げる未来を描きます。
+            <br className="hidden sm:block" />
+            都市課題の解決から新しいサービスづくりまで、前進させるパートナーです。
           </p>
           <p className="mt-4 text-xs text-zinc-500">
             ※ 本サイトは現在準備中です。順次コンテンツを追加していきます。
@@ -78,4 +78,3 @@ export default function Home() {
     </main>
   );
 }
-
