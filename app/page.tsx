@@ -32,7 +32,7 @@ export default function Home() {
           </h1>
           
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-zinc-700">
-            専確かな技術とデータ分析に基づき、御社の業務に合わせた最適なAIソリューションを低コスト・スモールスタートで実現します。
+            確かな技術とデータ分析に基づき、御社の業務に合わせた最適なAIソリューションを低コスト・スモールスタートで実現します。
           </p>
 
           {/* 3. CTAボタンの追加 */}
@@ -80,7 +80,7 @@ export default function Home() {
               💰 費用対効果を最大化する低コストサポート
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-zinc-600">
-              補助金活用支援まども含め、御社の予算に合わせた柔軟な導入モデルを提案。無料のインフラ技術も活用し、運用コストの低減を追求します。
+              補助金活用支援なども含め、御社の予算に合わせた柔軟な導入モデルをご提案。無料のインフラ技術も活用し、運用コストの低減を追求します。
             </p>
           </div>
         </section>
