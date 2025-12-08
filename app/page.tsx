@@ -1,65 +1,94 @@
-import Image from "next/image";
+import Image from 'next/image'; // Next.jsで画像を扱うためにインポート
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+    <main className="min-h-screen bg-zinc-50 text-zinc-900">
+      <div className="mx-auto flex min-h-screen max-w-5xl flex-col px-6 py-16">
+
+        {/* ヒーローセクション（トップの大きな見出し） */}
+        <header className="mb-16 border-b border-zinc-200 pb-8">
+          
+         {/* 1. ロゴと社名（文字拡大・適切な配置） */}
+          <div className="flex items-center space-x-3 mb-6"> 
+            <Image 
+              src="/logo.png" 
+              alt="Smart City AI LLC ロゴ"
+              width={160} 
+              height={50} 
+              className="h-auto w-24 sm:w-32" 
+              priority
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+            <p className="text-sm font-bold tracking-[0.1em] text-zinc-900 uppercase">
+              Smart City AI LLC
+            </p>
+          </div>
+
+          {/* 2. メインコピーの変更 */}
+          <h1 className="mt-6 text-3xl font-bold tracking-tight sm:text-4xl text-blue-800">
+            日本の企業に「AIの力」を。
+            <br className="hidden sm:block" />
+            生産性革命とスマートシティの未来を創る。
+          </h1>
+          
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-zinc-700">
+            確かな技術とデータ分析に基づき、御社の業務に合わせた最適なAIソリューションを低コスト・スモールスタートで実現します。
+          </p>
+
+          {/* 3. CTAボタンの追加 */}
+          <div className="mt-6">
+            <a 
+              href="mailto:contact@smartcityai.co.jp" // メールアドレスをここに設定
+              className="inline-flex items-center justify-center rounded-lg bg-emerald-600 px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+            >
+              AI導入の無料相談を予約する &rarr;
+            </a>
+          </div>
+
+          <p className="mt-6 text-xs text-zinc-500">
+             メールアドレスのみでお気軽にご相談ください。
+          </p>
+
+        </header>
+
+        {/* 3. ３つの重要点セクション（新しい内容に対応） */}
+        <section className="grid gap-8 md:grid-cols-3">
+          
+          {/* ① 業務に合わせたAI導入のご提案 */}
+          <div className="rounded-xl border border-zinc-200 bg-white p-6 shadow-lg transition hover:shadow-xl">
+            <h2 className="text-lg font-bold text-blue-800">
+              🎯 業務に合わせた<br />最適なAI導入のご提案
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-zinc-600">
+              経験豊富なデータサイエンティストが、まず御社のデータを徹底解析。既製品ではない、真に生産性を最大化するためのAI戦略をコンサルティングから設計までトータルで行います。
+            </p>
+          </div>
+
+          {/* ② 小さく始めるAI活用の設計・実装 */}
+          <div className="rounded-xl border border-zinc-200 bg-white p-6 shadow-lg transition hover:shadow-xl">
+            <h2 className="text-lg font-bold text-blue-800">
+              ✨ 低リスクで確実。<br />小さく始める設計・実装
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-zinc-600">
+              高額な初期投資は不要です。最小限のデータとコストでPoC（実証実験）から開始し、成果が確認できた段階でスケールアップ。リスクを抑え、確実な成果を目指します。
+            </p>
+          </div>
+
+          {/* ③ 低コストで始められるAI導入サポート */}
+          <div className="rounded-xl border border-zinc-200 bg-white p-6 shadow-lg transition hover:shadow-xl">
+            <h2 className="text-lg font-bold text-blue-800">
+              💰 費用対効果を最大化する<br />低コストサポート
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-zinc-600">
+              補助金活用支援なども含め、御社の予算に合わせた柔軟な導入モデルをご提案。無料のインフラ技術も活用し、運用コストの低減を追求します。
+            </p>
+          </div>
+        </section>
+
+        {/* フッター */}
+        <footer className="mt-auto pt-16 text-xs text-zinc-400 text-center">
+          © 2025 Smart City AI LLC. All rights reserved.
+        </footer>
+      </div>
+    </main>
   );
 }
