@@ -25,9 +25,9 @@ export default function Home() {
 
           {/* 2. メインコピーの変更 */}
           <h1 className="mt-6 text-3xl font-bold tracking-tight sm:text-4xl text-blue-800">
-            日本の企業に「AIの力」を。
+            日本の企業に「AIの力」を
             <br className="hidden sm:block" />
-            生産性革命とスマートシティの未来を創る。
+            生産性革命とスマートシティの未来を創る
           </h1>
           
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-zinc-700">
