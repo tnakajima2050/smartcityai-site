@@ -8,18 +8,17 @@ export default function Home() {
         {/* ヒーローセクション（トップの大きな見出し） */}
         <header className="mb-16 border-b border-zinc-200 pb-8">
           
-          {/* 1. ロゴの配置 */}
-          <div className="flex items-center space-x-3">
-            {/* 画像の幅と高さを指定し、Tailwindで調整。ここでは幅120px、高さ40pxを想定 */}
+         {/* 1. ロゴと社名（文字拡大・適切な配置） */}
+          <div className="flex items-center space-x-3 mb-6"> 
             <Image 
-              src="/logo.png" // ロゴ完成版.pngのパスを仮に/logo.pngと設定
+              src="/logo.png" 
               alt="Smart City AI LLC ロゴ"
-              width={120} 
-              height={40} 
+              width={160} 
+              height={50} 
               className="h-auto w-24 sm:w-32" 
               priority
             />
-            <p className="text-xs font-semibold tracking-[0.25em] text-zinc-600 uppercase">
+            <p className="text-sm font-bold tracking-[0.1em] text-zinc-900 uppercase">
               Smart City AI LLC
             </p>
           </div>
@@ -57,7 +56,7 @@ export default function Home() {
           {/* ① 業務に合わせたAI導入のご提案 */}
           <div className="rounded-xl border border-zinc-200 bg-white p-6 shadow-lg transition hover:shadow-xl">
             <h2 className="text-lg font-bold text-blue-800">
-              🎯 業務に合わせた最適なAI導入のご提案
+              🎯 業務に合わせた<br />最適なAI導入のご提案
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-zinc-600">
               経験豊富なデータサイエンティストが、まず御社のデータを徹底解析。既製品ではない、真に生産性を最大化するためのAI戦略をコンサルティングから設計までトータルで行います。
@@ -67,7 +66,7 @@ export default function Home() {
           {/* ② 小さく始めるAI活用の設計・実装 */}
           <div className="rounded-xl border border-zinc-200 bg-white p-6 shadow-lg transition hover:shadow-xl">
             <h2 className="text-lg font-bold text-blue-800">
-              ✨ 低リスクで確実。小さく始める設計・実装
+              ✨ 低リスクで確実。<br />小さく始める設計・実装
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-zinc-600">
               高額な初期投資は不要です。最小限のデータとコストでPoC（実証実験）から開始し、成果が確認できた段階でスケールアップ。リスクを抑え、確実な成果を目指します。
@@ -77,7 +76,7 @@ export default function Home() {
           {/* ③ 低コストで始められるAI導入サポート */}
           <div className="rounded-xl border border-zinc-200 bg-white p-6 shadow-lg transition hover:shadow-xl">
             <h2 className="text-lg font-bold text-blue-800">
-              💰 費用対効果を最大化する低コストサポート
+              💰 費用対効果を最大化する<br />低コストサポート
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-zinc-600">
               補助金活用支援なども含め、御社の予算に合わせた柔軟な導入モデルをご提案。無料のインフラ技術も活用し、運用コストの低減を追求します。
