@@ -1,77 +1,93 @@
+import Image from 'next/image'; // Next.jsで画像を扱うためにインポート
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-zinc-50 text-zinc-900">
       <div className="mx-auto flex min-h-screen max-w-5xl flex-col px-6 py-16">
+
         {/* ヒーローセクション（トップの大きな見出し） */}
-        <header className="mb-12 border-b border-zinc-200 pb-8">
-          <p className="text-xs font-semibold tracking-[0.25em] text-emerald-600 uppercase">
-            SMART CITY AI LLC
-          </p>
-          <h1 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-            AIで、人と都市の未来をデザインする
-          </h1>
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-zinc-600">
-            AIとデジタルの力で、人と街の可能性を広げる未来を描きます。
+        <header className="mb-16 border-b border-zinc-200 pb-8">
+          
+          {/* 1. ロゴの配置 */}
+          <div className="flex items-center space-x-3">
+            {/* 画像の幅と高さを指定し、Tailwindで調整。ここでは幅120px、高さ40pxを想定 */}
+            <Image 
+              src="/logo.png" // ロゴ完成版.pngのパスを仮に/logo.pngと設定
+              alt="Smart City AI LLC ロゴ"
+              width={120} 
+              height={40} 
+              className="h-auto w-24 sm:w-32" 
+              priority
+            />
+            <p className="text-xs font-semibold tracking-[0.25em] text-zinc-600 uppercase">
+              Smart City AI LLC
+            </p>
+          </div>
+
+          {/* 2. メインコピーの変更 */}
+          <h1 className="mt-6 text-3xl font-bold tracking-tight sm:text-4xl text-blue-800">
+            日本の中小企業に「AIの力」を。
             <br className="hidden sm:block" />
-            都市課題の解決から新しいサービスづくりまで、前進させるパートナーです。
+            生産性革命とスマートシティの未来を創る。
+          </h1>
+          
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-zinc-700">
+            専門知識とデータ分析に基づき、御社の業務に合わせた最適なAIソリューションを
+            **低コスト・スモールスタートで実現します。**
           </p>
-          <p className="mt-4 text-xs text-zinc-500">
-            ※ 本サイトは現在準備中です。順次コンテンツを追加していきます。
+
+          {/* 3. CTAボタンの追加 */}
+          <div className="mt-6">
+            <a 
+              href="mailto:contact@smartcityai.co.jp" // メールアドレスをここに設定
+              className="inline-flex items-center justify-center rounded-lg bg-emerald-600 px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+            >
+              AI導入の無料相談を予約する &rarr;
+            </a>
+          </div>
+
+          <p className="mt-6 text-xs text-zinc-500">
+             メールアドレスのみでお気軽にご相談ください。
           </p>
+
         </header>
 
-        {/* ３つの特徴セクション（Wordの内容に対応） */}
-        <section className="grid gap-6 md:grid-cols-3">
-          {/* ① スマートシティ & 都市戦略 */}
-          <div className="rounded-xl border border-zinc-200 bg-white p-5 shadow-sm">
-            <h2 className="text-sm font-semibold text-zinc-900">
-              スマートシティ & 都市戦略
+        {/* 3. ３つの重要点セクション（新しい内容に対応） */}
+        <section className="grid gap-8 md:grid-cols-3">
+          
+          {/* ① 業務に合わせたAI導入のご提案 */}
+          <div className="rounded-xl border border-zinc-200 bg-white p-6 shadow-lg transition hover:shadow-xl">
+            <h2 className="text-lg font-bold text-blue-800">
+              🎯 業務に合わせた最適なAI導入提案
             </h2>
-            <p className="mt-2 text-[11px] font-semibold text-emerald-700">
-              → 都市をアップグレードする AI・デジタル戦略設計
+            <p className="mt-3 text-sm leading-relaxed text-zinc-600">
+              経験豊富なデータサイエンティストが、まず御社のデータを徹底解析。既製品ではない、真に生産性を最大化するためのAI戦略をコンサルティングから設計します。
             </p>
-            <ul className="mt-3 space-y-1 text-xs leading-relaxed text-zinc-600">
-              <li>・AI・データを活用した都市計画支援</li>
-              <li>・エリアマネジメントのデータ分析</li>
-              <li>・スマートシティ基盤の企画・設計</li>
-            </ul>
           </div>
 
-          {/* ② AI・データ活用の実装支援 */}
-          <div className="rounded-xl border border-zinc-200 bg-white p-5 shadow-sm">
-            <h2 className="text-sm font-semibold text-zinc-900">
-              AI・データ活用の実装支援
+          {/* ② 小さく始めるAI活用の設計・実装 */}
+          <div className="rounded-xl border border-zinc-200 bg-white p-6 shadow-lg transition hover:shadow-xl">
+            <h2 className="text-lg font-bold text-blue-800">
+              ✨ 低リスクで確実。小さく始める設計・実装
             </h2>
-            <p className="mt-2 text-[11px] font-semibold text-emerald-700">
-              → AIを“使える価値”に変える。
+            <p className="mt-3 text-sm leading-relaxed text-zinc-600">
+              高額な初期投資は不要です。最小限のデータとコストでPoC（実証実験）から開始し、成果が確認できた段階でスケールアップ。リスクを抑え、確実な成果を目指します。
             </p>
-            <ul className="mt-3 space-y-1 text-xs leading-relaxed text-zinc-600">
-              <li>・AI活用戦略の策定（何にAIを使うべきか）</li>
-              <li>・業務改善のAI利用コンサルティング</li>
-              <li>・PoC（試行導入）支援・効果検証</li>
-              <li>・AIリテラシー教育・研修</li>
-            </ul>
           </div>
 
-          {/* ③ AI・ITソリューション開発 & プロジェクト推進 */}
-          <div className="rounded-xl border border-zinc-200 bg-white p-5 shadow-sm">
-            <h2 className="text-sm font-semibold text-zinc-900">
-              AI・ITソリューション開発 & プロジェクト推進
+          {/* ③ 低コストで始められるAI導入サポート */}
+          <div className="rounded-xl border border-zinc-200 bg-white p-6 shadow-lg transition hover:shadow-xl">
+            <h2 className="text-lg font-bold text-blue-800">
+              💰 費用対効果を最大化する低コストサポート
             </h2>
-            <p className="mt-2 text-[11px] font-semibold text-emerald-700">
-              → AI・ITを“動くシステム”として構築し、プロジェクトを完遂する。
+            <p className="mt-3 text-sm leading-relaxed text-zinc-600">
+              補助金活用支援を含め、中小企業の予算に合わせた柔軟な導入モデルを提案。無料のインフラ技術も活用し、運用コストの低減を追求します。
             </p>
-            <ul className="mt-3 space-y-1 text-xs leading-relaxed text-zinc-600">
-              <li>・AIシステム・アプリケーションの開発</li>
-              <li>・IoT・センサー・ロボット連携システム構築</li>
-              <li>・既存ITシステムの運用・保守・最適化</li>
-              <li>・プロジェクトマネジメント・導入支援</li>
-            </ul>
           </div>
         </section>
 
         {/* フッター */}
-        <footer className="mt-auto pt-12 text-xs text-zinc-400">
+        <footer className="mt-auto pt-16 text-xs text-zinc-400 text-center">
           © 2025 Smart City AI LLC. All rights reserved.
         </footer>
       </div>
