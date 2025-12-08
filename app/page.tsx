@@ -26,14 +26,13 @@ export default function Home() {
 
           {/* 2. メインコピーの変更 */}
           <h1 className="mt-6 text-3xl font-bold tracking-tight sm:text-4xl text-blue-800">
-            日本の中小企業に「AIの力」を。
+            日本の企業に「AIの力」を。
             <br className="hidden sm:block" />
             生産性革命とスマートシティの未来を創る。
           </h1>
           
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-zinc-700">
-            専門知識とデータ分析に基づき、御社の業務に合わせた最適なAIソリューションを
-            **低コスト・スモールスタートで実現します。**
+            専確かな技術とデータ分析に基づき、御社の業務に合わせた最適なAIソリューションを低コスト・スモールスタートで実現します。
           </p>
 
           {/* 3. CTAボタンの追加 */}
@@ -58,10 +57,10 @@ export default function Home() {
           {/* ① 業務に合わせたAI導入のご提案 */}
           <div className="rounded-xl border border-zinc-200 bg-white p-6 shadow-lg transition hover:shadow-xl">
             <h2 className="text-lg font-bold text-blue-800">
-              🎯 業務に合わせた最適なAI導入提案
+              🎯 業務に合わせた最適なAI導入のご提案
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-zinc-600">
-              経験豊富なデータサイエンティストが、まず御社のデータを徹底解析。既製品ではない、真に生産性を最大化するためのAI戦略をコンサルティングから設計します。
+              経験豊富なデータサイエンティストが、まず御社のデータを徹底解析。既製品ではない、真に生産性を最大化するためのAI戦略をコンサルティングから設計までトータルで行います。
             </p>
           </div>
 
@@ -81,7 +80,7 @@ export default function Home() {
               💰 費用対効果を最大化する低コストサポート
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-zinc-600">
-              補助金活用支援を含め、中小企業の予算に合わせた柔軟な導入モデルを提案。無料のインフラ技術も活用し、運用コストの低減を追求します。
+              補助金活用支援まども含め、御社の予算に合わせた柔軟な導入モデルを提案。無料のインフラ技術も活用し、運用コストの低減を追求します。
             </p>
           </div>
         </section>
