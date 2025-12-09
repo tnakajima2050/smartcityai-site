@@ -1,9 +1,9 @@
-'use client'; // インタラクティブな機能（モーダル、FAQ）を使うために必須
+'use client';
 
 import { useState } from 'react';
 import Image from 'next/image';
 
-// ▼ データ定義：6つの活用事例
+// ▼ データ定義：6つの活用事例（「提案」ベースの表現＋図解コンポーネント）
 const useCases = [
   {
     id: 1,
@@ -11,7 +11,18 @@ const useCases = [
     title: "定型文書の自動化",
     target: "士業・事務",
     desc: "報告書、契約書、議事録のドラフトを数秒で自動作成。",
-    detail: "【仕組み】過去の書類データとひな形をAIに学習させ、キーワードを入力するだけでドラフトが完成します。行政書士や税理士事務所での導入実績があり、書類作成時間を平均70%削減しました。"
+    detail: "過去の書類データとひな形をAIに学習させ、キーワードを入力するだけでドラフトが完成する仕組みです。",
+    benefit: "書類作成にかかる時間を大幅に短縮し、専門家としてのチェック業務に集中できる環境を作ります。",
+    // 図解：入力 → AI → 出力
+    visual: (
+      <div className="flex items-center justify-center gap-2 text-zinc-600 bg-blue-50/50 p-4 rounded-lg overflow-x-auto">
+        <div className="text-center flex-shrink-0"><span className="text-3xl block">📝</span><span className="text-xs">キーワード</span></div>
+        <div className="text-blue-400">➡</div>
+        <div className="text-center bg-white p-2 rounded shadow-sm border border-blue-100 flex-shrink-0"><span className="text-3xl block">🤖</span><span className="text-xs font-bold text-blue-600">AI生成</span></div>
+        <div className="text-blue-400">➡</div>
+        <div className="text-center flex-shrink-0"><span className="text-3xl block">📄</span><span className="text-xs">完成書類</span></div>
+      </div>
+    )
   },
   {
     id: 2,
@@ -19,15 +30,37 @@ const useCases = [
     title: "在庫・物流の自動チェック",
     target: "物流・製造・小売",
     desc: "カメラ映像解析で在庫数や検品作業を自動化。",
-    detail: "【仕組み】倉庫内のカメラ映像をAIがリアルタイム解析。バーコードを読み取る手間なく、製品の数をカウントしたり、ラベルの貼り間違いなどの異常を検知します。"
+    detail: "倉庫内のカメラ映像をAIが解析。バーコードを読み取る手間なく、製品の数をカウントしたり、異常を検知します。",
+    benefit: "人による数え間違い（ヒューマンエラー）を防止し、検品コストの削減が期待できます。",
+    // 図解：カメラ → 解析 → データ化
+    visual: (
+      <div className="flex items-center justify-center gap-2 text-zinc-600 bg-blue-50/50 p-4 rounded-lg overflow-x-auto">
+        <div className="text-center flex-shrink-0"><span className="text-3xl block">📹</span><span className="text-xs">カメラ映像</span></div>
+        <div className="text-blue-400">➡</div>
+        <div className="text-center bg-white p-2 rounded shadow-sm border border-blue-100 flex-shrink-0"><span className="text-3xl block">👁️</span><span className="text-xs font-bold text-blue-600">画像解析</span></div>
+        <div className="text-blue-400">➡</div>
+        <div className="text-center flex-shrink-0"><span className="text-3xl block">📊</span><span className="text-xs">在庫データ</span></div>
+      </div>
+    )
   },
   {
     id: 3,
     icon: "📞",
     title: "高度な顧客対応の自動化",
     target: "営業・CS",
-    desc: "NLP技術で電話やメールの一次対応を24時間自動化。",
-    detail: "【仕組み】顧客からの電話音声をテキスト化し、社内データベース（FAQやマニュアル）から最適な回答をAIが生成・回答します。夜間休日の機会損失を防ぎます。"
+    desc: "NLP技術で電話やメールの一次対応を自動化。",
+    detail: "顧客からの電話音声をテキスト化し、社内データベース（FAQやマニュアル）から最適な回答をAIが生成します。",
+    benefit: "24時間365日の対応が可能になり、夜間休日の機会損失を防ぎます。",
+    // 図解：電話 → AI検索 → 回答
+    visual: (
+      <div className="flex items-center justify-center gap-2 text-zinc-600 bg-blue-50/50 p-4 rounded-lg overflow-x-auto">
+        <div className="text-center flex-shrink-0"><span className="text-3xl block">📞</span><span className="text-xs">問い合わせ</span></div>
+        <div className="text-blue-400">➡</div>
+        <div className="text-center bg-white p-2 rounded shadow-sm border border-blue-100 flex-shrink-0"><span className="text-3xl block">🧠</span><span className="text-xs font-bold text-blue-600">AI検索</span></div>
+        <div className="text-blue-400">➡</div>
+        <div className="text-center flex-shrink-0"><span className="text-3xl block">💬</span><span className="text-xs">自動回答</span></div>
+      </div>
+    )
   },
   {
     id: 4,
@@ -35,7 +68,18 @@ const useCases = [
     title: "設備故障の予知・検知",
     target: "製造・ビル管理",
     desc: "異音や振動データから故障の予兆を察知。",
-    detail: "【仕組み】熟練工が「音」で判断していた異常をAIが数値化。故障してラインが止まる前に部品交換のアラートを出し、ダウンタイムを最小限に抑えます。"
+    detail: "熟練工が「音」で判断していた異常をAIが数値化。故障してラインが止まる前にアラートを出します。",
+    benefit: "予期せぬライン停止（ダウンタイム）を回避し、計画的なメンテナンスを実現します。",
+    // 図解：機械 → センサー → 予知
+    visual: (
+      <div className="flex items-center justify-center gap-2 text-zinc-600 bg-blue-50/50 p-4 rounded-lg overflow-x-auto">
+        <div className="text-center flex-shrink-0"><span className="text-3xl block">🏭</span><span className="text-xs">稼働音</span></div>
+        <div className="text-blue-400">➡</div>
+        <div className="text-center bg-white p-2 rounded shadow-sm border border-blue-100 flex-shrink-0"><span className="text-3xl block">📈</span><span className="text-xs font-bold text-blue-600">波形分析</span></div>
+        <div className="text-blue-400">➡</div>
+        <div className="text-center flex-shrink-0"><span className="text-3xl block">⚠️</span><span className="text-xs">異常アラート</span></div>
+      </div>
+    )
   },
   {
     id: 5,
@@ -43,7 +87,18 @@ const useCases = [
     title: "経理・仕訳業務の自動化",
     target: "経理・総務",
     desc: "領収書読み取りと勘定科目の自動仕訳。",
-    detail: "【仕組み】OCR（文字認識）とAI推論を組み合わせ、バラバラのフォーマットの請求書やレシートを読み取り、会計ソフトへ自動入力します。月末の残業をゼロにします。"
+    detail: "OCR（文字認識）とAI推論を組み合わせ、バラバラのフォーマットの請求書を読み取り、会計ソフトへ入力します。",
+    benefit: "手入力の手間をなくし、月末の経理業務の負担を劇的に軽減します。",
+    // 図解：レシート → AI読取 → CSV
+    visual: (
+      <div className="flex items-center justify-center gap-2 text-zinc-600 bg-blue-50/50 p-4 rounded-lg overflow-x-auto">
+        <div className="text-center flex-shrink-0"><span className="text-3xl block">🧾</span><span className="text-xs">レシート</span></div>
+        <div className="text-blue-400">➡</div>
+        <div className="text-center bg-white p-2 rounded shadow-sm border border-blue-100 flex-shrink-0"><span className="text-3xl block">👁️</span><span className="text-xs font-bold text-blue-600">AI-OCR</span></div>
+        <div className="text-blue-400">➡</div>
+        <div className="text-center flex-shrink-0"><span className="text-3xl block">💻</span><span className="text-xs">会計ソフト</span></div>
+      </div>
+    )
   },
   {
     id: 6,
@@ -51,7 +106,18 @@ const useCases = [
     title: "社内ナレッジのAI検索",
     target: "全業種",
     desc: "社内のバラバラな資料を統合し、対話形式で検索。",
-    detail: "【仕組み】社内版ChatGPTのような環境を構築します。PDF、Word、Excelなどの社内規定や技術資料をAIに読み込ませ、「〇〇の規定はどうなってる？」と聞くだけで即座に回答が得られます。"
+    detail: "社内版ChatGPTのような環境を構築。PDFやマニュアルをAIに読み込ませ、質問するだけで回答が得られます。",
+    benefit: "「あの資料どこだっけ？」という探し物の時間をゼロにし、業務効率を高めます。",
+    // 図解：資料の山 → AI学習 → 回答
+    visual: (
+      <div className="flex items-center justify-center gap-2 text-zinc-600 bg-blue-50/50 p-4 rounded-lg overflow-x-auto">
+        <div className="text-center flex-shrink-0"><span className="text-3xl block">📚</span><span className="text-xs">社内資料</span></div>
+        <div className="text-blue-400">➡</div>
+        <div className="text-center bg-white p-2 rounded shadow-sm border border-blue-100 flex-shrink-0"><span className="text-3xl block">🧠</span><span className="text-xs font-bold text-blue-600">学習・統合</span></div>
+        <div className="text-blue-400">➡</div>
+        <div className="text-center flex-shrink-0"><span className="text-3xl block">💡</span><span className="text-xs">即座に回答</span></div>
+      </div>
+    )
   }
 ];
 
@@ -76,7 +142,6 @@ const faqs = [
 ];
 
 export default function Home() {
-  // モーダルとFAQの状態管理
   const [selectedCase, setSelectedCase] = useState<typeof useCases[0] | null>(null);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
@@ -89,7 +154,7 @@ export default function Home() {
       <div className="mx-auto flex min-h-screen max-w-5xl flex-col px-6 py-16">
 
         {/* --------------------------------------------------------- */}
-        {/* 1. ヒーローセクション：信頼と期待感の醸成 */}
+        {/* 1. ヒーローセクション */}
         {/* --------------------------------------------------------- */}
         <header className="mb-20 border-b border-zinc-200 pb-12">
           {/* ロゴ */}
@@ -135,7 +200,7 @@ export default function Home() {
 
 
         {/* --------------------------------------------------------- */}
-        {/* 2. 3つの強み：他社との違いを明確化 */}
+        {/* 2. 3つの強み */}
         {/* --------------------------------------------------------- */}
         <section className="mb-24">
           <div className="text-center mb-10">
@@ -144,7 +209,6 @@ export default function Home() {
           </div>
 
           <div className="grid gap-8 md:grid-cols-3">
-            {/* ① */}
             <div className="bg-white p-6 rounded-xl border border-blue-100 shadow-sm hover:shadow-md transition">
               <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center text-2xl mb-4">🎯</div>
               <h3 className="font-bold text-lg text-blue-900 mb-2">御社専用のオーダーメイド</h3>
@@ -152,7 +216,6 @@ export default function Home() {
                 パッケージ製品の押し売りはしません。御社の業務フローを徹底的にヒアリングし、本当に必要な機能だけを設計・開発します。
               </p>
             </div>
-            {/* ② */}
             <div className="bg-white p-6 rounded-xl border border-blue-100 shadow-sm hover:shadow-md transition">
               <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center text-2xl mb-4">✨</div>
               <h3 className="font-bold text-lg text-blue-900 mb-2">リスク最小限のPoC開発</h3>
@@ -160,7 +223,6 @@ export default function Home() {
                 いきなり数百万円は使いません。まずは最小限のコストで試作版（PoC）を作り、効果を確認してから本格導入へ進みます。
               </p>
             </div>
-            {/* ③ */}
             <div className="bg-white p-6 rounded-xl border border-blue-100 shadow-sm hover:shadow-md transition">
               <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center text-2xl mb-4">💰</div>
               <h3 className="font-bold text-lg text-blue-900 mb-2">補助金活用で低コスト</h3>
@@ -173,7 +235,7 @@ export default function Home() {
 
 
         {/* --------------------------------------------------------- */}
-        {/* 3. プロセス：導入の流れ（不安の払拭）★NEW★ */}
+        {/* 3. プロセス：導入の流れ */}
         {/* --------------------------------------------------------- */}
         <section className="mb-24 bg-blue-50/50 -mx-6 px-6 py-16">
           <div className="max-w-5xl mx-auto">
@@ -202,14 +264,14 @@ export default function Home() {
 
 
         {/* --------------------------------------------------------- */}
-        {/* 4. 6つの活用事例：クリックで詳細表示 ★NEW★ */}
+        {/* 4. 6つの活用事例：クリックで詳細表示 */}
         {/* --------------------------------------------------------- */}
         <section className="mb-24">
           <div className="text-center mb-12">
             <h2 className="text-sm font-bold text-emerald-600 uppercase tracking-widest">Solutions</h2>
             <h3 className="text-2xl font-bold text-blue-900 mt-2">AI導入で解決できる 6つの業務課題</h3>
             <p className="mt-3 text-zinc-600">
-              御社の課題に近いものをクリックしてください。<br className="md:hidden"/>具体的な解決策が表示されます。
+              御社の課題に近いものをクリックしてください。<br className="md:hidden"/>解決へのプロセスを図解でご覧いただけます。
             </p>
           </div>
 
@@ -233,7 +295,7 @@ export default function Home() {
                   {item.desc}
                 </p>
                 <div className="mt-4 text-sm font-bold text-blue-600 flex items-center">
-                  詳細を見る <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
+                  仕組み・図解を見る <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
                 </div>
               </button>
             ))}
@@ -242,7 +304,7 @@ export default function Home() {
 
 
         {/* --------------------------------------------------------- */}
-        {/* 5. FAQ：反論処理と疑問解消 ★NEW★ */}
+        {/* 5. FAQ */}
         {/* --------------------------------------------------------- */}
         <section className="mb-24 max-w-3xl mx-auto w-full">
           <div className="text-center mb-10">
@@ -275,30 +337,7 @@ export default function Home() {
 
 
         {/* --------------------------------------------------------- */}
-        {/* 6. 会社情報・メッセージ：顔の見える信頼感 ★NEW★ */}
-        {/* --------------------------------------------------------- */}
-        <section className="mb-20 bg-zinc-900 text-zinc-300 rounded-2xl p-8 md:p-12 text-center md:text-left">
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            <div className="flex-1">
-              <h3 className="text-2xl font-bold text-white mb-4">日本の生産性を、AIで底上げする。</h3>
-              <p className="leading-relaxed mb-6 text-sm md:text-base">
-                AIは一部の大企業だけのものではありません。むしろ、人手不足に悩む中小企業にこそ、その恩恵が必要です。<br/><br/>
-                私たちは、最新の技術を「誰にでも使える形」にして提供し、御社の頼れるデジタルパートナーとして伴走します。まずは小さく、未来への一歩を踏み出しましょう。
-              </p>
-              <div className="font-bold text-white">
-                Smart City AI LLC <span className="font-normal text-zinc-400 text-sm ml-2">代表</span>
-              </div>
-            </div>
-            {/* 写真を入れる場合はここにImageタグを追加。今はロゴかプレースホルダー */}
-            <div className="w-24 h-24 md:w-32 md:h-32 bg-zinc-800 rounded-full flex items-center justify-center border-2 border-zinc-700">
-               <span className="text-4xl">🤝</span>
-            </div>
-          </div>
-        </section>
-
-
-        {/* --------------------------------------------------------- */}
-        {/* フッター：詳細版 */}
+        {/* フッター */}
         {/* --------------------------------------------------------- */}
         <footer className="mt-auto border-t border-zinc-200 pt-10 pb-6 text-zinc-600">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
@@ -339,26 +378,26 @@ export default function Home() {
       </div>
 
       {/* --------------------------------------------------------- */}
-      {/* モーダル（ポップアップ）実装 */}
+      {/* モーダル（ポップアップ） */}
       {/* --------------------------------------------------------- */}
       {selectedCase && (
         <div 
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity"
-          onClick={() => setSelectedCase(null)} // 背景クリックで閉じる
+          onClick={() => setSelectedCase(null)}
         >
           <div 
-            className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl overflow-hidden relative animate-in fade-in zoom-in duration-200"
-            onClick={(e) => e.stopPropagation()} // 中身クリックでは閉じない
+            className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl overflow-hidden relative animate-in fade-in zoom-in duration-200 max-h-[90vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
           >
             {/* ヘッダー */}
-            <div className="bg-blue-50 p-6 border-b border-blue-100 flex justify-between items-start">
+            <div className="bg-blue-50 p-6 border-b border-blue-100 flex justify-between items-start sticky top-0 bg-blue-50/95 backdrop-blur z-10">
               <div className="flex items-center gap-4">
                 <span className="text-5xl">{selectedCase.icon}</span>
                 <div>
                   <span className="text-xs font-bold bg-blue-600 text-white px-2 py-1 rounded">
                     {selectedCase.target} 向け
                   </span>
-                  <h3 className="text-2xl font-bold text-blue-900 mt-2">
+                  <h3 className="text-xl md:text-2xl font-bold text-blue-900 mt-2">
                     {selectedCase.title}
                   </h3>
                 </div>
@@ -372,31 +411,40 @@ export default function Home() {
             </div>
 
             {/* コンテンツ */}
-            <div className="p-8">
-              <h4 className="text-sm font-bold text-zinc-400 uppercase tracking-wider mb-2">課題と解決</h4>
-              <p className="text-lg text-zinc-700 mb-6 font-medium">
-                {selectedCase.desc}
-              </p>
-
-              <div className="bg-zinc-50 p-6 rounded-xl border border-zinc-200">
-                <h4 className="text-sm font-bold text-emerald-600 uppercase tracking-wider mb-3 flex items-center">
-                  <span className="mr-2 text-lg">💡</span> 具体的な仕組み・効果
-                </h4>
-                <p className="text-sm text-zinc-600 leading-relaxed whitespace-pre-line">
-                  {selectedCase.detail}
-                </p>
+            <div className="p-6 md:p-8">
+              {/* 1. 処理フロー図解（視覚化の肝） */}
+              <div className="mb-8">
+                <h4 className="text-sm font-bold text-zinc-400 uppercase tracking-wider mb-3 text-center">AI処理の流れ</h4>
+                {selectedCase.visual}
               </div>
 
-              <div className="mt-8 text-center">
+              {/* 2. 仕組みの説明 */}
+              <div className="mb-6">
+                 <h4 className="text-sm font-bold text-blue-800 mb-2">📌 具体的な仕組み</h4>
+                 <p className="text-zinc-700 text-sm leading-relaxed">
+                   {selectedCase.detail}
+                 </p>
+              </div>
+
+              {/* 3. 期待される効果 */}
+              <div className="bg-emerald-50 p-4 rounded-lg border border-emerald-100 mb-8">
+                 <h4 className="text-sm font-bold text-emerald-800 mb-1">✨ 期待される効果</h4>
+                 <p className="text-emerald-800 text-sm font-medium">
+                   {selectedCase.benefit}
+                 </p>
+              </div>
+
+              {/* 4. CTA */}
+              <div className="text-center border-t border-zinc-100 pt-6">
+                <p className="text-xs text-zinc-500 mb-4">
+                  「自社の場合はどうなる？」を無料でお答えします。
+                </p>
                 <a 
                   href={`mailto:tetsuya.nakajima@smartcityai.co.jp?subject=【${selectedCase.title}】について相談したい`}
                   className="inline-block w-full sm:w-auto bg-blue-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-700 transition shadow-lg"
                 >
                   この事例について相談する
                 </a>
-                <p className="text-xs text-zinc-400 mt-3">
-                  メールソフトが起動します
-                </p>
               </div>
             </div>
           </div>
