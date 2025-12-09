@@ -37,7 +37,7 @@ export default function Home() {
           {/* 3. CTAボタンの追加 */}
           <div className="mt-6">
             <a 
-              href="mailto:contact@smartcityai.co.jp" // メールアドレスをここに設定
+              href="mailto:tetsuya.nakajima@smartcityai.co.jp" // メールアドレスをここに設定
               className="inline-flex items-center justify-center rounded-lg bg-emerald-600 px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
             >
               AI導入の無料相談を予約する &rarr;
