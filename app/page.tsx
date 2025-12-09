@@ -84,8 +84,27 @@ export default function Home() {
           </div>
         </section>
 
-        {/* フッター */}
-        <footer className="mt-auto pt-16 text-xs text-zinc-400 text-center">
+        {/* ======================================================= */}
+        {/* ★★★ サービス/ソリューションセクションをここに貼り付ける ★★★ */}
+        {/* ======================================================= */}
+        
+        {/* サービス/ソリューションセクション */}
+        <section className="mt-16 pt-8 border-t border-zinc-200">
+          <h2 className="text-2xl font-bold tracking-tight text-blue-800 mb-8">
+            Smart City AI LLCが提供するソリューション
+          </h2>
+          {/* ... 以下、残りのサービスコンテンツ ... */}
+          <div className="mt-10 text-center">
+            {/* ... ボタン ... */}
+          </div>
+        </section>
+
+        //{/* フッター */}  <-- フッターはそのまま残します -->
+        //<footer className="mt-auto pt-16 text-xs text-zinc-400 text-center">
+        
+
+        //{/* フッター */}
+        //<footer className="mt-auto pt-16 text-xs text-zinc-400 text-center">
           © 2025 Smart City AI LLC. All rights reserved.
         </footer>
       </div>
