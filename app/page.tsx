@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 // ------------------------------------------------------------------
 // ▼ データ定義：6つの活用事例
-//   図解（visual）を大幅に強化し、「AIダッシュボード風」のデザインに
+//   【修正完了】全事例を「画面いっぱいの高密度UI」に全面刷新
 // ------------------------------------------------------------------
 const useCases = [
   {
@@ -16,50 +16,75 @@ const useCases = [
     desc: "報告書、契約書、議事録のドラフトを数秒で自動作成。",
     detail: "過去の書類データとひな形をAIに学習させ、キーワードを入力するだけでドラフトが完成する仕組みです。",
     benefit: "書類作成にかかる時間を大幅に短縮し、専門家としてのチェック業務に集中できる環境を作ります。",
-    // 図解：ドキュメント生成プロセス
+    // 【修正】高密度なAIエディタ画面（パラメータサイドバー付き）
     visual: (
-      <div className="h-full bg-slate-50 rounded-xl border border-slate-200 p-6 flex flex-col relative overflow-hidden group">
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-emerald-500"></div>
-        {/* UIヘッダー */}
-        <div className="flex justify-between items-center mb-6 border-b border-slate-200 pb-2">
-          <div className="flex gap-2">
-            <div className="w-3 h-3 rounded-full bg-red-400"></div>
-            <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
-            <div className="w-3 h-3 rounded-full bg-green-400"></div>
-          </div>
-          <div className="text-xs text-slate-400 font-mono">SmartDoc AI Generator</div>
+      <div className="h-full bg-zinc-100 flex flex-col overflow-hidden rounded-lg shadow-inner border border-zinc-300 font-sans text-xs">
+        {/* ツールバー */}
+        <div className="bg-zinc-800 text-zinc-300 p-2 flex items-center gap-4 shadow-md">
+           <div className="font-bold text-white tracking-wider">SmartDoc AI</div>
+           <div className="flex gap-2">
+             <span className="bg-zinc-700 px-2 py-0.5 rounded hover:bg-zinc-600 cursor-pointer">File</span>
+             <span className="bg-zinc-700 px-2 py-0.5 rounded hover:bg-zinc-600 cursor-pointer">Edit</span>
+             <span className="bg-zinc-700 px-2 py-0.5 rounded hover:bg-zinc-600 cursor-pointer">View</span>
+           </div>
+           <div className="ml-auto bg-blue-600 text-white px-3 py-0.5 rounded font-bold text-[10px] animate-pulse">AI GENERATING...</div>
         </div>
         {/* メインエリア */}
-        <div className="flex gap-4 h-full">
-          {/* 左：入力 */}
-          <div className="w-1/3 bg-white border border-slate-200 rounded p-3 shadow-sm flex flex-col gap-2">
-            <div className="text-[10px] text-slate-400 font-bold uppercase">INPUT DATA</div>
-            <div className="h-2 w-3/4 bg-slate-200 rounded animate-pulse"></div>
-            <div className="h-2 w-1/2 bg-slate-200 rounded animate-pulse"></div>
-            <div className="mt-auto p-2 bg-blue-50 rounded border border-blue-100">
-              <div className="text-[10px] text-blue-600 font-bold">キーワード:</div>
-              <div className="text-[10px] text-slate-600">事業報告, 売上増</div>
-            </div>
-          </div>
-          {/* 中央：処理矢印 */}
-          <div className="flex flex-col justify-center items-center text-blue-500">
-            <div className="text-2xl animate-bounce">➡</div>
-            <div className="text-[10px] font-bold bg-blue-100 px-2 py-0.5 rounded-full text-blue-700">AI生成中...</div>
-          </div>
-          {/* 右：出力 */}
-          <div className="w-1/2 bg-white border border-emerald-200 rounded p-4 shadow-md relative">
-            <div className="absolute -top-2 -right-2 bg-emerald-500 text-white text-[10px] font-bold px-2 py-1 rounded shadow">COMPLETE</div>
-            <div className="text-[10px] text-emerald-600 font-bold uppercase mb-2">OUTPUT DOCUMENT</div>
-            <div className="space-y-2">
-               <div className="h-2 w-full bg-slate-100 rounded"></div>
-               <div className="h-2 w-full bg-slate-100 rounded"></div>
-               <div className="h-2 w-2/3 bg-slate-100 rounded"></div>
-               <div className="h-2 w-full bg-slate-100 rounded"></div>
-               <div className="h-20 w-full bg-slate-50 border border-slate-100 rounded p-2 text-[8px] text-slate-400 leading-relaxed">
-                 (AIが生成した文章がここに自動で入力されます...)
-               </div>
-            </div>
-          </div>
+        <div className="flex-grow flex">
+           {/* 左：パラメータ入力 (密度アップ) */}
+           <div className="w-1/4 bg-zinc-200 border-r border-zinc-300 p-3 flex flex-col gap-3">
+              <div className="font-bold text-zinc-600 border-b border-zinc-300 pb-1">PARAMETERS</div>
+              <div className="bg-white p-2 rounded border border-zinc-300">
+                <div className="text-[10px] text-zinc-400">ドキュメント種別</div>
+                <div className="font-bold text-zinc-800">事業譲渡契約書</div>
+              </div>
+              <div className="bg-white p-2 rounded border border-zinc-300">
+                <div className="text-[10px] text-zinc-400">甲（譲渡人）</div>
+                <div className="font-bold text-zinc-800">株式会社サンプル</div>
+              </div>
+              <div className="bg-white p-2 rounded border border-zinc-300">
+                <div className="text-[10px] text-zinc-400">乙（譲受人）</div>
+                <div className="font-bold text-zinc-800">スマートAI合同会社</div>
+              </div>
+              <div className="bg-white p-2 rounded border border-zinc-300 flex-grow">
+                <div className="text-[10px] text-zinc-400">特記事項</div>
+                <div className="text-zinc-600 leading-tight mt-1">
+                  ・従業員の処遇については別途覚書とする<br/>
+                  ・譲渡期日は2025年4月1日<br/>
+                  ・機密保持条項を含めること
+                </div>
+              </div>
+           </div>
+           {/* 右：プレビュー (余白を埋める) */}
+           <div className="w-3/4 bg-white p-6 overflow-y-auto relative">
+              {/* 用紙 */}
+              <div className="max-w-2xl mx-auto bg-white shadow-lg border border-zinc-100 min-h-[120%] p-8 text-zinc-800 relative">
+                 <h1 className="text-xl font-serif font-bold text-center mb-8 border-b-2 border-black pb-2">事業譲渡契約書（案）</h1>
+                 <div className="space-y-4 font-serif leading-relaxed text-sm">
+                   <p>株式会社サンプル（以下「甲」という。）とスマートAI合同会社（以下「乙」という。）とは、甲の営む〇〇事業の譲渡に関し、以下の通り契約を締結する。</p>
+                   
+                   <div className="pl-4 border-l-4 border-blue-200 bg-blue-50 p-2">
+                     <h2 className="font-bold mb-1 text-blue-800">第1条（目的）</h2>
+                     <p>甲は乙に対し、本契約の定めるところにより、甲の営む〇〇事業（以下「本件事業」という。）を譲渡し、乙はこれを譲り受ける。</p>
+                   </div>
+                   
+                   <div className="pl-4">
+                     <h2 className="font-bold mb-1">第2条（譲渡期日）</h2>
+                     <p>本件事業の譲渡期日は、<span className="bg-yellow-100 font-bold px-1">2025年4月1日</span>とする。ただし、必要に応じて甲乙協議の上これを変更することができる。</p>
+                   </div>
+
+                   <div className="pl-4">
+                     <h2 className="font-bold mb-1">第3条（従業員の処遇）</h2>
+                     <p className="text-zinc-400 italic">（AI生成中...）</p>
+                     <div className="h-2 w-full bg-zinc-100 rounded animate-pulse mt-1"></div>
+                     <div className="h-2 w-2/3 bg-zinc-100 rounded animate-pulse mt-1"></div>
+                   </div>
+                 </div>
+                 {/* AIカーソル */}
+                 <div className="absolute top-[60%] left-12 w-1 h-5 bg-blue-600 animate-blink"></div>
+                 <div className="absolute top-[58%] left-14 bg-blue-600 text-white text-[9px] px-1 rounded rounded-bl-none shadow-lg">AI Typing...</div>
+              </div>
+           </div>
         </div>
       </div>
     )
@@ -72,47 +97,67 @@ const useCases = [
     desc: "カメラ映像解析で在庫数や検品作業を自動化。",
     detail: "倉庫内のカメラ映像をAIが解析。バーコードを読み取る手間なく、製品の数をカウントしたり、異常を検知します。",
     benefit: "人による数え間違い（ヒューマンエラー）を防止し、検品コストの削減が期待できます。",
-    // 図解：カメラ認識画面
+    // 【修正】リアルな写真背景＋AIオーバーレイ
     visual: (
-      <div className="h-full bg-slate-900 rounded-xl overflow-hidden relative flex flex-col">
-        {/* カメラオーバーレイ */}
-        <div className="absolute top-4 left-4 text-emerald-400 text-xs font-mono flex items-center gap-2">
-           <span className="w-2 h-2 bg-emerald-500 rounded-full animate-ping"></span>
-           LIVE CAM - WAREHOUSE 01
-        </div>
-        <div className="absolute top-4 right-4 text-white text-xs font-mono">
-           FPS: 59.9
-        </div>
-        
-        {/* 認識枠のシミュレーション */}
-        <div className="flex-grow flex items-center justify-center relative p-10">
-           {/* ボックス1 */}
-           <div className="absolute top-1/4 left-1/4 w-24 h-24 border-2 border-emerald-500 rounded bg-emerald-500/10 flex items-end justify-center">
-              <span className="bg-emerald-600 text-white text-[10px] px-1 mb-[-10px]">Box A: 98%</span>
-           </div>
-           {/* ボックス2 */}
-           <div className="absolute bottom-1/3 right-1/3 w-32 h-20 border-2 border-emerald-500 rounded bg-emerald-500/10 flex items-end justify-center">
-              <span className="bg-emerald-600 text-white text-[10px] px-1 mb-[-10px]">Box B: 99%</span>
-           </div>
-           {/* 異常検知 */}
-           <div className="absolute bottom-10 left-10 w-16 h-16 border-2 border-red-500 border-dashed rounded bg-red-500/10 flex items-end justify-center animate-pulse">
-              <span className="bg-red-600 text-white text-[10px] px-1 mb-[-10px]">Warning</span>
-           </div>
+      <div className="h-full bg-black rounded-lg overflow-hidden relative group">
+        {/* 背景画像（倉庫）: Picsumを使用 (商用利用可なplaceholder) */}
+        <div className="absolute inset-0 w-full h-full">
+           {/* eslint-disable-next-line @next/next/no-img-element */}
+           <img 
+             src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop" 
+             alt="Warehouse" 
+             className="w-full h-full object-cover opacity-60"
+           />
         </div>
 
-        {/* 下部データパネル */}
-        <div className="bg-slate-800 p-3 grid grid-cols-3 gap-2 border-t border-slate-700">
-           <div className="text-center">
-             <div className="text-[10px] text-slate-400">TOTAL COUNT</div>
-             <div className="text-xl font-bold text-white">1,248</div>
+        {/* UIオーバーレイ */}
+        <div className="absolute inset-0 p-4 font-mono text-xs">
+           <div className="flex justify-between items-start text-emerald-400 mb-4">
+              <div className="bg-black/70 px-2 py-1 rounded border border-emerald-500/50">CAM-04: SHIPPING AREA</div>
+              <div className="bg-black/70 px-2 py-1 rounded border border-emerald-500/50 animate-pulse">● REC</div>
            </div>
-           <div className="text-center border-l border-slate-600">
-             <div className="text-[10px] text-slate-400">ERROR</div>
-             <div className="text-xl font-bold text-red-400">1</div>
+
+           {/* バウンディングボックス（認識枠） */}
+           <div className="relative w-full h-3/4">
+              {/* 箱1 */}
+              <div className="absolute top-[20%] left-[10%] w-[15%] h-[20%] border-2 border-emerald-400 bg-emerald-400/10 flex items-start justify-between p-1">
+                 <span className="bg-emerald-600 text-white text-[9px] px-1">BOX #4021</span>
+                 <span className="text-emerald-400 text-[9px]">99%</span>
+              </div>
+              {/* 箱2 */}
+              <div className="absolute top-[25%] left-[30%] w-[15%] h-[20%] border-2 border-emerald-400 bg-emerald-400/10 flex items-start justify-between p-1">
+                 <span className="bg-emerald-600 text-white text-[9px] px-1">BOX #4022</span>
+                 <span className="text-emerald-400 text-[9px]">98%</span>
+              </div>
+              {/* 箱3（奥） */}
+              <div className="absolute top-[15%] left-[50%] w-[10%] h-[15%] border-2 border-emerald-400 bg-emerald-400/10"></div>
+              
+              {/* フォークリフト（検知） */}
+              <div className="absolute bottom-[10%] right-[10%] w-[30%] h-[40%] border-2 border-yellow-400 bg-yellow-400/10 flex flex-col items-start p-1">
+                 <span className="bg-yellow-600 text-white text-[9px] px-1 mb-1">FORKLIFT</span>
+                 <span className="text-yellow-400 text-[9px]">Speed: 5km/h</span>
+              </div>
+
+              {/* 異常検知（荷崩れなど） */}
+              <div className="absolute bottom-[30%] left-[5%] w-[12%] h-[12%] border-2 border-red-500 border-dashed bg-red-500/20 animate-pulse flex items-center justify-center">
+                 <span className="bg-red-600 text-white text-[9px] px-1">ALERT</span>
+              </div>
            </div>
-           <div className="text-center border-l border-slate-600">
-             <div className="text-[10px] text-slate-400">STATUS</div>
-             <div className="text-xs font-bold text-emerald-400 mt-1">NORMAL</div>
+           
+           {/* フッターデータ */}
+           <div className="absolute bottom-0 left-0 w-full bg-black/80 border-t border-zinc-700 p-3 flex justify-around text-center text-white">
+              <div>
+                <div className="text-[10px] text-zinc-400">TOTAL ITEMS</div>
+                <div className="text-xl font-bold">842</div>
+              </div>
+              <div>
+                <div className="text-[10px] text-zinc-400">THROUGHPUT</div>
+                <div className="text-xl font-bold">120<span className="text-xs font-normal text-zinc-500">/hr</span></div>
+              </div>
+              <div>
+                 <div className="text-[10px] text-zinc-400">STATUS</div>
+                 <div className="text-xl font-bold text-emerald-400">OK</div>
+              </div>
            </div>
         </div>
       </div>
@@ -126,45 +171,94 @@ const useCases = [
     desc: "NLP技術で電話やメールの一次対応を自動化。",
     detail: "顧客からの電話音声をテキスト化し、社内データベース（FAQやマニュアル）から最適な回答をAIが生成します。",
     benefit: "24時間365日の対応が可能になり、夜間休日の機会損失を防ぎます。",
-    // 図解：チャットボット解析画面
+    // 【修正】高密度なプロ仕様オペレーターダッシュボード
     visual: (
-      <div className="h-full bg-white rounded-xl border border-slate-200 p-4 flex flex-col shadow-inner bg-slate-50">
-        <div className="flex items-center gap-2 mb-4 border-b border-slate-200 pb-2">
-           <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-lg">🤖</div>
-           <div>
-             <div className="text-xs font-bold text-slate-700">AI Operator Agent</div>
-             <div className="text-[10px] text-emerald-600">● Online</div>
+      <div className="h-full bg-slate-100 flex overflow-hidden rounded-lg border border-slate-300 font-sans">
+        {/* サイドバー (ユーザーリスト) */}
+        <div className="w-1/4 bg-white border-r border-slate-200 flex flex-col">
+           <div className="p-3 bg-slate-50 border-b border-slate-200 font-bold text-slate-700 text-xs flex justify-between">
+             <span>INBOX (4)</span>
+             <span className="text-blue-500">Auto-Mode ON</span>
+           </div>
+           <div className="flex-grow overflow-y-auto">
+             <div className="p-3 border-b border-slate-100 bg-blue-50 border-l-4 border-blue-500">
+               <div className="flex justify-between mb-1"><span className="font-bold text-slate-800 text-xs">090-XXXX-5678</span><span className="text-[10px] text-slate-400">Now</span></div>
+               <div className="text-[10px] text-slate-500 truncate">請求書の件について確認したい...</div>
+             </div>
+             {[1,2,3].map(i => (
+               <div key={i} className="p-3 border-b border-slate-100 hover:bg-slate-50 opacity-60">
+                 <div className="flex justify-between mb-1"><span className="font-bold text-slate-800 text-xs">Customer {i}</span><span className="text-[10px] text-slate-400">10m ago</span></div>
+                 <div className="text-[10px] text-slate-500 truncate">契約更新の手続きについて...</div>
+               </div>
+             ))}
            </div>
         </div>
-        
-        <div className="flex-grow space-y-3">
-          {/* 顧客のメッセージ */}
-          <div className="flex gap-2">
-            <div className="w-6 h-6 bg-slate-200 rounded-full flex-shrink-0"></div>
-            <div className="bg-white border border-slate-200 p-2 rounded-tr-lg rounded-br-lg rounded-bl-lg shadow-sm max-w-[80%]">
-              <div className="text-[10px] text-slate-400 mb-1">Customer (Voice to Text)</div>
-              <div className="text-xs text-slate-700">今月の請求書の締め日はいつですか？</div>
-            </div>
-          </div>
-          
-          {/* 思考プロセス */}
-          <div className="flex justify-center my-2">
-             <span className="text-[10px] bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded-full border border-yellow-200 animate-pulse">
-               🔍 データベース検索中... (Confidence: 98%)
-             </span>
-          </div>
 
-          {/* AIの回答 */}
-          <div className="flex gap-2 flex-row-reverse">
-            <div className="w-6 h-6 bg-blue-600 rounded-full flex-shrink-0 flex items-center justify-center text-white text-xs">AI</div>
-            <div className="bg-blue-600 text-white p-2 rounded-tl-lg rounded-bl-lg rounded-br-lg shadow-md max-w-[80%]">
-              <div className="text-[10px] text-blue-200 mb-1">Auto Response</div>
-              <div className="text-xs">
-                弊社の締め日は毎月20日となっております。<br/>
-                請求書は25日頃に発送いたします。
-              </div>
-            </div>
-          </div>
+        {/* メインチャットエリア */}
+        <div className="w-1/2 flex flex-col bg-white">
+           <div className="p-3 border-b border-slate-200 flex justify-between items-center shadow-sm z-10">
+             <div className="flex items-center gap-2">
+               <div className="w-8 h-8 rounded-full bg-slate-200"></div>
+               <div>
+                 <div className="font-bold text-sm text-slate-800">鈴木 一郎 様</div>
+                 <div className="text-[10px] text-emerald-600">● 通話中 (AI対応中)</div>
+               </div>
+             </div>
+             <div className="text-xs bg-slate-100 px-2 py-1 rounded text-slate-500">Duration: 02:14</div>
+           </div>
+           
+           <div className="flex-grow bg-slate-50 p-4 space-y-4 overflow-y-auto">
+             <div className="flex gap-2">
+               <div className="bg-white p-3 rounded-tr-xl rounded-br-xl rounded-bl-xl shadow-sm max-w-[90%] border border-slate-200">
+                 <div className="text-[10px] text-slate-400 mb-1">Voice to Text</div>
+                 <p className="text-xs text-slate-800">先日届いた請求書の金額が、見積もりと違うようなのですが。</p>
+               </div>
+             </div>
+             
+             {/* AI思考プロセス表示 */}
+             <div className="flex items-center gap-2 px-2">
+               <div className="h-px bg-slate-200 flex-grow"></div>
+               <span className="text-[10px] text-blue-500 bg-blue-50 px-2 py-1 rounded-full border border-blue-100">
+                 意図: 請求額の相違 | 感情: <span className="text-orange-500">不安(Negative)</span>
+               </span>
+               <div className="h-px bg-slate-200 flex-grow"></div>
+             </div>
+
+             <div className="flex gap-2 flex-row-reverse">
+               <div className="bg-blue-600 p-3 rounded-tl-xl rounded-bl-xl rounded-br-xl shadow-md max-w-[90%] text-white">
+                 <div className="flex justify-between items-center mb-1 border-b border-blue-500 pb-1">
+                   <span className="text-[10px] font-bold">AI Agent</span>
+                   <span className="text-[9px] bg-blue-700 px-1 rounded">Confidence: 99%</span>
+                 </div>
+                 <p className="text-xs">
+                   ご不安をおかけして申し訳ございません。確認いたしますので、請求書右上の番号を教えていただけますか？<br/>
+                   なお、今月は年会費の更新月にあたりますが、そちらが含まれている可能性がございます。
+                 </p>
+               </div>
+             </div>
+           </div>
+        </div>
+
+        {/* 右サイドバー (情報パネル) */}
+        <div className="w-1/4 bg-slate-50 border-l border-slate-200 p-3 flex flex-col gap-4">
+           <div className="bg-white p-3 rounded border border-slate-200 shadow-sm">
+             <h4 className="text-[10px] font-bold text-slate-400 uppercase mb-2">Customer Info</h4>
+             <div className="space-y-2">
+               <div className="flex justify-between text-xs"><span className="text-slate-500">Plan</span><span className="font-bold">Premium</span></div>
+               <div className="flex justify-between text-xs"><span className="text-slate-500">Since</span><span className="font-bold">2021/04</span></div>
+               <div className="flex justify-between text-xs"><span className="text-slate-500">LTV</span><span className="font-bold">¥480,000</span></div>
+             </div>
+           </div>
+
+           <div className="bg-white p-3 rounded border border-slate-200 shadow-sm flex-grow">
+             <h4 className="text-[10px] font-bold text-slate-400 uppercase mb-2">Suggested Actions</h4>
+             <button className="w-full text-left text-xs p-2 bg-blue-50 text-blue-700 rounded mb-2 hover:bg-blue-100 border border-blue-100">
+               📄 請求書再発行フォームを送る
+             </button>
+             <button className="w-full text-left text-xs p-2 bg-slate-50 text-slate-700 rounded mb-2 hover:bg-slate-100 border border-slate-200">
+               👤 人間オペレーターに交代
+             </button>
+           </div>
         </div>
       </div>
     )
@@ -177,40 +271,77 @@ const useCases = [
     desc: "異音や振動データから故障の予兆を察知。",
     detail: "熟練工が「音」で判断していた異常をAIが数値化。故障してラインが止まる前にアラートを出します。",
     benefit: "予期せぬライン停止（ダウンタイム）を回避し、計画的なメンテナンスを実現します。",
-    // 図解：波形モニタリング
+    // 【修正】全画面モニタリング（詳細パラメータ追加）
     visual: (
-      <div className="h-full bg-zinc-900 rounded-xl p-4 flex flex-col font-mono relative overflow-hidden">
-        {/* グリッド背景 */}
-        <div className="absolute inset-0 opacity-10" style={{backgroundImage: 'linear-gradient(#444 1px, transparent 1px), linear-gradient(90deg, #444 1px, transparent 1px)', backgroundSize: '20px 20px'}}></div>
+      <div className="h-full bg-zinc-900 rounded-lg p-4 flex flex-col font-mono text-xs relative overflow-hidden border border-zinc-700">
+        {/* グリッドライン */}
+        <div className="absolute inset-0 opacity-20" style={{backgroundImage: 'linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px)', backgroundSize: '40px 40px'}}></div>
         
-        <div className="flex justify-between items-end mb-4 relative z-10">
-          <div>
-            <div className="text-xs text-zinc-400">SENSOR: MACHINE-A04</div>
-            <div className="text-xs text-zinc-400">TYPE: VIBRATION</div>
-          </div>
-          <div className="text-right">
-             <div className="text-2xl font-bold text-emerald-400">NORMAL</div>
-          </div>
-        </div>
-
-        {/* 波形アニメーション風 */}
-        <div className="flex-grow flex items-end gap-1 relative z-10 h-32 border-b border-zinc-700 pb-2">
-           {[40, 60, 45, 70, 50, 65, 55, 45, 60, 90, 100, 40, 50, 60, 45, 50, 40, 30, 40, 50].map((h, i) => (
-             <div key={i} className={`w-full bg-emerald-500 opacity-80 rounded-t-sm transition-all duration-500`} style={{height: `${i === 10 ? 95 : h}%`, backgroundColor: i === 10 ? '#ef4444' : '#10b981'}}></div>
-           ))}
-           {/* 閾値ライン */}
-           <div className="absolute top-[10%] left-0 w-full h-[1px] bg-red-500 border-dashed border-t border-red-500 opacity-50"></div>
-           <div className="absolute top-[5%] right-0 text-[10px] text-red-500 bg-zinc-900 px-1">ALERT THRESHOLD</div>
-        </div>
-
-        <div className="mt-4 grid grid-cols-2 gap-4 relative z-10">
-           <div className="bg-zinc-800 p-2 rounded border-l-2 border-emerald-500">
-             <div className="text-[10px] text-zinc-500">AVG VIBRATION</div>
-             <div className="text-white font-bold">45.2 Hz</div>
+        {/* ヘッダー */}
+        <div className="flex justify-between items-center mb-6 relative z-10 border-b border-zinc-700 pb-4">
+           <div className="flex gap-6">
+             <div>
+               <div className="text-zinc-500 text-[10px]">FACTORY UNIT</div>
+               <div className="text-white font-bold text-lg">LINE-04</div>
+             </div>
+             <div>
+               <div className="text-zinc-500 text-[10px]">SENSOR ID</div>
+               <div className="text-white font-bold text-lg">VIB-9921</div>
+             </div>
            </div>
-           <div className="bg-zinc-800 p-2 rounded border-l-2 border-yellow-500">
-             <div className="text-[10px] text-zinc-500">PEAK DETECTED</div>
-             <div className="text-white font-bold">14:02 PM</div>
+           <div className="flex items-center gap-4">
+             <div className="text-right">
+               <div className="text-zinc-500 text-[10px]">AI PREDICTION</div>
+               <div className="text-emerald-400 font-bold text-xl">HEALTHY</div>
+             </div>
+             <div className="w-3 h-3 bg-emerald-500 rounded-full animate-pulse shadow-[0_0_10px_#10b981]"></div>
+           </div>
+        </div>
+
+        {/* メイングラフエリア */}
+        <div className="flex-grow flex items-end gap-1 relative z-10 border-b border-zinc-600 pb-1 mb-4 h-1/2">
+           {Array.from({length: 40}).map((_, i) => {
+             const h = Math.random() * 40 + 20; // Random height
+             const isSpike = i === 25 || i === 26;
+             const finalH = isSpike ? 85 : h;
+             const color = isSpike ? 'bg-yellow-500' : 'bg-emerald-500';
+             return (
+               <div key={i} className={`flex-1 ${color} opacity-80 transition-all duration-300 hover:opacity-100 rounded-t-sm`} style={{height: `${finalH}%`}}></div>
+             );
+           })}
+           {/* 閾値ライン */}
+           <div className="absolute top-[15%] w-full h-px bg-red-500 border-t border-dashed border-red-500 opacity-60"></div>
+           <div className="absolute top-[12%] right-0 text-red-500 text-[10px]">CRITICAL THRESHOLD</div>
+        </div>
+
+        {/* サブデータパネル（3カラム） */}
+        <div className="grid grid-cols-3 gap-4 h-1/3 relative z-10">
+           <div className="bg-zinc-800/50 p-3 rounded border border-zinc-700">
+             <div className="text-zinc-400 mb-2">FREQUENCY ANALYZER</div>
+             <div className="flex items-end gap-0.5 h-12">
+                {Array.from({length: 20}).map((_, i) => <div key={i} className="flex-1 bg-blue-500" style={{height: `${Math.random()*100}%`}}></div>)}
+             </div>
+             <div className="mt-2 text-blue-300 font-bold">440Hz <span className="text-zinc-500 text-[10px]">Peak</span></div>
+           </div>
+           
+           <div className="bg-zinc-800/50 p-3 rounded border border-zinc-700">
+             <div className="text-zinc-400 mb-2">TEMPERATURE</div>
+             <div className="flex justify-between items-end h-12">
+               <div className="text-3xl font-bold text-white">62.4<span className="text-sm text-zinc-500">°C</span></div>
+               <div className="text-[10px] text-emerald-400">+0.2% vs Avg</div>
+             </div>
+             <div className="w-full bg-zinc-700 h-1 mt-2 rounded overflow-hidden">
+               <div className="bg-white h-full w-[60%]"></div>
+             </div>
+           </div>
+
+           <div className="bg-zinc-800/50 p-3 rounded border border-zinc-700 flex flex-col justify-between">
+             <div className="text-zinc-400">MAINTENANCE</div>
+             <div className="text-white text-sm">
+               Next Schedule:<br/>
+               <span className="font-bold text-lg">2025/12/20</span>
+             </div>
+             <div className="text-[10px] text-emerald-500">No urgent action required</div>
            </div>
         </div>
       </div>
@@ -224,41 +355,76 @@ const useCases = [
     desc: "領収書読み取りと勘定科目の自動仕訳。",
     detail: "OCR（文字認識）とAI推論を組み合わせ、バラバラのフォーマットの請求書を読み取り、会計ソフトへ入力します。",
     benefit: "手入力の手間をなくし、月末の経理業務の負担を劇的に軽減します。",
-    // 図解：スキャンプロセス
+    // 【修正】大量処理スプリットスクリーン（左：レシート山、右：集計表）
     visual: (
-      <div className="h-full bg-slate-100 rounded-xl p-6 relative overflow-hidden flex items-center justify-center">
-        {/* レシートイメージ */}
-        <div className="w-48 bg-white shadow-xl rotate-[-5deg] p-4 text-[8px] text-slate-400 font-mono absolute left-10 border-t-8 border-slate-300">
-           <div className="text-center text-xs font-bold text-slate-800 mb-2">RECEIPT</div>
-           <div className="flex justify-between mb-1"><span>DATE</span><span>2025/12/09</span></div>
-           <div className="flex justify-between mb-1"><span>ITEM A</span><span>¥1,200</span></div>
-           <div className="flex justify-between mb-1"><span>ITEM B</span><span>¥3,500</span></div>
-           <div className="border-t border-slate-300 my-1"></div>
-           <div className="flex justify-between font-bold text-slate-800"><span>TOTAL</span><span>¥4,700</span></div>
+      <div className="h-full flex gap-4 bg-slate-50 p-4 rounded-lg border border-slate-200">
+        {/* 左側：入力（レシートの山） */}
+        <div className="w-1/3 flex flex-col relative">
+           <div className="text-center font-bold text-slate-500 text-xs mb-2 uppercase tracking-widest">Input: Raw Receipts</div>
+           <div className="flex-grow relative flex items-center justify-center">
+              {/* CSSでレシートの山を表現 */}
+              {[1,2,3,4,5].map((i) => (
+                <div key={i} className="absolute w-32 h-40 bg-white border border-slate-300 shadow-md p-2 flex flex-col items-center" 
+                     style={{
+                       transform: `rotate(${Math.random() * 20 - 10}deg) translate(${Math.random() * 20 - 10}px, ${Math.random() * 20 - 10}px)`,
+                       zIndex: i
+                     }}>
+                   <div className="w-8 h-8 rounded-full bg-slate-100 mb-2"></div>
+                   <div className="w-full h-1 bg-slate-200 mb-1"></div>
+                   <div className="w-2/3 h-1 bg-slate-200 mb-4"></div>
+                   <div className="w-full h-px bg-slate-200 mb-1"></div>
+                   <div className="w-full h-px bg-slate-200 mb-1"></div>
+                   <div className="mt-auto text-[8px] font-mono font-bold">¥{Math.floor(Math.random()*5000 + 100)}</div>
+                </div>
+              ))}
+              {/* スキャナー光 */}
+              <div className="absolute top-1/2 left-0 w-full h-1 bg-blue-500 shadow-[0_0_15px_#3b82f6] z-10 animate-[scan_1.5s_linear_infinite]"></div>
+           </div>
+           <div className="bg-slate-200 text-center py-2 rounded mt-2">
+             <div className="text-[10px] text-slate-500">Processing</div>
+             <div className="font-bold text-slate-700">52 files / min</div>
+           </div>
         </div>
 
-        {/* スキャンビーム */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-400/30 to-transparent w-full h-8 animate-[scan_2s_ease-in-out_infinite] top-1/2"></div>
+        {/* 中央：変換矢印 */}
+        <div className="flex flex-col justify-center items-center text-blue-400">
+           <div className="text-3xl">➡</div>
+           <div className="text-[10px] font-bold">AI-OCR</div>
+        </div>
 
-        {/* 抽出データカード */}
-        <div className="w-56 bg-white rounded-lg shadow-2xl border border-blue-200 absolute right-6 top-1/2 transform -translate-y-1/2 p-4 z-10">
-           <div className="flex items-center gap-2 mb-2 border-b border-slate-100 pb-2">
-             <span className="text-lg">✨</span>
-             <span className="text-xs font-bold text-blue-700">AI Extraction</span>
+        {/* 右側：出力（集計表） */}
+        <div className="flex-grow flex flex-col bg-white border border-emerald-200 rounded shadow-lg overflow-hidden">
+           <div className="bg-emerald-600 text-white p-2 text-xs font-bold flex justify-between">
+             <span>Exported Data.xlsx</span>
+             <span>Success: 100%</span>
            </div>
-           <div className="space-y-2">
-             <div className="flex justify-between items-center bg-slate-50 p-1 rounded">
-               <span className="text-[10px] text-slate-500">金額</span>
-               <span className="text-sm font-bold text-slate-800">¥4,700</span>
-             </div>
-             <div className="flex justify-between items-center bg-slate-50 p-1 rounded">
-               <span className="text-[10px] text-slate-500">日付</span>
-               <span className="text-xs font-bold text-slate-800">2025/12/09</span>
-             </div>
-             <div className="bg-blue-50 p-2 rounded border border-blue-100">
-               <span className="text-[10px] text-blue-400 block mb-1">勘定科目 (自動推論)</span>
-               <span className="text-xs font-bold text-blue-700 bg-white px-2 py-0.5 rounded border border-blue-200">消耗品費</span>
-             </div>
+           <div className="flex-grow overflow-y-auto">
+             <table className="w-full text-[10px] text-left">
+               <thead className="bg-emerald-50 text-emerald-800 sticky top-0">
+                 <tr>
+                   <th className="p-2 border-b">ID</th>
+                   <th className="p-2 border-b">日付</th>
+                   <th className="p-2 border-b">勘定科目 (AI)</th>
+                   <th className="p-2 border-b">支払先</th>
+                   <th className="p-2 border-b text-right">金額</th>
+                 </tr>
+               </thead>
+               <tbody className="divide-y divide-slate-100">
+                 {[...Array(10)].map((_, i) => (
+                   <tr key={i} className="hover:bg-slate-50">
+                     <td className="p-2 text-slate-400">#{1001+i}</td>
+                     <td className="p-2">2025/12/{10+i}</td>
+                     <td className="p-2"><span className="bg-blue-50 text-blue-600 px-1 rounded border border-blue-100 font-bold">{i%3===0 ? '消耗品費' : i%3===1 ? '旅費交通費' : '交際費'}</span></td>
+                     <td className="p-2">{i%3===0 ? 'Amazon.co.jp' : i%3===1 ? 'JR東日本' : '〇〇居酒屋'}</td>
+                     <td className="p-2 text-right font-mono font-bold">¥{Math.floor(Math.random()*10000).toLocaleString()}</td>
+                   </tr>
+                 ))}
+               </tbody>
+             </table>
+           </div>
+           <div className="bg-slate-50 border-t border-slate-200 p-2 flex justify-end gap-2 text-xs">
+              <span className="text-slate-500">Total:</span>
+              <span className="font-bold text-slate-800">¥142,580</span>
            </div>
         </div>
       </div>
@@ -272,33 +438,95 @@ const useCases = [
     desc: "社内のバラバラな資料を統合し、対話形式で検索。",
     detail: "社内版ChatGPTのような環境を構築。PDFやマニュアルをAIに読み込ませ、質問するだけで回答が得られます。",
     benefit: "「あの資料どこだっけ？」という探し物の時間をゼロにし、業務効率を高めます。",
-    // 図解：ナレッジベース検索
+    // 【修正】情報量MAXチャットUI（左：履歴、中：チャット、右：参照プレビュー）
     visual: (
-      <div className="h-full bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl p-6 flex flex-col justify-center items-center relative overflow-hidden">
-        {/* 背景のドキュメントアイコン */}
-        <div className="absolute top-4 left-10 text-4xl opacity-10 rotate-12">📄</div>
-        <div className="absolute bottom-10 right-10 text-5xl opacity-10 -rotate-12">📊</div>
-        <div className="absolute top-1/2 right-4 text-3xl opacity-10">📁</div>
-
-        {/* 検索バー */}
-        <div className="w-full max-w-sm bg-white rounded-full shadow-lg border border-indigo-100 p-1 flex items-center mb-6 relative z-10">
-           <div className="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-500 ml-1">🔎</div>
-           <div className="flex-grow px-3 text-xs text-slate-400">就業規則の交通費について教えて</div>
-           <div className="bg-indigo-600 text-white text-[10px] font-bold px-3 py-1.5 rounded-full">Ask AI</div>
+      <div className="h-full bg-white flex rounded-lg border border-slate-200 shadow-sm overflow-hidden font-sans">
+        {/* 左カラム：チャット履歴 (30%) */}
+        <div className="w-1/3 bg-slate-50 border-r border-slate-200 flex flex-col">
+          <div className="p-3 border-b border-slate-200 bg-white font-bold text-slate-700 text-xs">Chat History</div>
+          <div className="flex-grow overflow-y-auto">
+             <div className="p-3 border-b border-slate-100 bg-blue-50 border-l-4 border-blue-500 cursor-pointer">
+               <div className="text-[10px] text-slate-500 mb-1">Today 14:30</div>
+               <div className="text-xs font-bold text-slate-800 truncate">就業規則の交通費について</div>
+             </div>
+             <div className="p-3 border-b border-slate-100 hover:bg-white cursor-pointer opacity-60">
+               <div className="text-[10px] text-slate-500 mb-1">Yesterday</div>
+               <div className="text-xs text-slate-800 truncate">経費精算システムのURLは？</div>
+             </div>
+             <div className="p-3 border-b border-slate-100 hover:bg-white cursor-pointer opacity-60">
+               <div className="text-[10px] text-slate-500 mb-1">3 days ago</div>
+               <div className="text-xs text-slate-800 truncate">年末年始の休業期間</div>
+             </div>
+          </div>
+          <div className="p-2 border-t border-slate-200">
+             <button className="w-full py-1.5 bg-white border border-slate-300 rounded text-xs text-slate-600 font-bold hover:bg-slate-100">+ New Chat</button>
+          </div>
         </div>
 
-        {/* つながるライン */}
-        <div className="h-8 w-0.5 bg-indigo-200 mb-2"></div>
+        {/* 中央：メインチャット (40%) */}
+        <div className="w-2/5 flex flex-col bg-white border-r border-slate-200">
+           <div className="flex-grow p-4 overflow-y-auto space-y-4">
+              {/* ユーザーの質問 */}
+              <div className="flex gap-2 flex-row-reverse">
+                <div className="bg-slate-100 p-3 rounded-2xl rounded-tr-none text-xs text-slate-800 max-w-[90%]">
+                   就業規則の交通費について教えて。上限はある？
+                </div>
+              </div>
 
-        {/* 回答カード */}
-        <div className="w-full max-w-sm bg-white rounded-lg shadow-xl border border-indigo-200 p-4 relative z-10">
-           <div className="absolute -top-3 -left-3 bg-white p-1 rounded-full shadow border border-indigo-50 text-xl">💡</div>
-           <h5 className="text-xs font-bold text-indigo-800 mb-2">AI Answer:</h5>
-           <p className="text-xs text-slate-600 leading-relaxed">
-             就業規則 第4章に基づき、交通費は<span className="bg-yellow-100 font-bold">月額3万円まで</span>全額支給されます。申請は毎月25日までにクラウド経費システムから行ってください。
-           </p>
-           <div className="mt-3 pt-2 border-t border-slate-100 flex gap-2">
-             <span className="text-[9px] bg-slate-100 text-slate-500 px-1.5 py-0.5 rounded">引用元: 就業規則.pdf (p.12)</span>
+              {/* AI回答 */}
+              <div className="flex gap-2">
+                 <div className="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center text-white text-[10px] flex-shrink-0">AI</div>
+                 <div className="space-y-2 max-w-[90%]">
+                    <div className="p-3 rounded-2xl rounded-tl-none border border-blue-100 bg-blue-50/50 text-xs text-slate-800 leading-relaxed">
+                       <p className="mb-2">就業規則 第4章に基づき、交通費は<span className="font-bold bg-yellow-100 px-1">月額3万円まで</span>全額支給されます。</p>
+                       <p>これを超える分については、部長承認が必要となります。</p>
+                    </div>
+                    {/* 参照元リンク */}
+                    <div className="flex gap-1 flex-wrap">
+                       <span className="px-2 py-1 bg-white border border-slate-200 rounded text-[10px] text-blue-600 flex items-center gap-1 cursor-pointer hover:bg-blue-50 transition shadow-sm">
+                          📄 就業規則.pdf (p.12)
+                       </span>
+                       <span className="px-2 py-1 bg-white border border-slate-200 rounded text-[10px] text-blue-600 flex items-center gap-1 cursor-pointer hover:bg-blue-50 transition shadow-sm">
+                          📄 交通費申請マニュアル.pdf
+                       </span>
+                    </div>
+                 </div>
+              </div>
+           </div>
+           {/* 入力エリア */}
+           <div className="p-3 border-t border-slate-200">
+              <div className="relative">
+                 <input type="text" className="w-full border border-slate-300 rounded-full pl-4 pr-10 py-2 text-xs focus:outline-none focus:border-blue-500" placeholder="質問を入力..." />
+                 <button className="absolute right-1 top-1 w-7 h-7 bg-blue-600 rounded-full text-white flex items-center justify-center hover:bg-blue-700">↑</button>
+              </div>
+           </div>
+        </div>
+
+        {/* 右カラム：参照元プレビュー (30%) */}
+        <div className="w-1/3 bg-slate-100 flex flex-col">
+           <div className="p-2 border-b border-slate-200 flex justify-between items-center text-xs text-slate-500">
+              <span>Source Preview</span>
+              <span>⬇</span>
+           </div>
+           <div className="flex-grow p-4 overflow-hidden flex flex-col items-center justify-center">
+              <div className="bg-white shadow-lg border border-slate-200 w-full h-full p-6 text-[8px] text-slate-400 overflow-hidden relative">
+                 <div className="font-bold text-slate-800 text-sm mb-4 text-center border-b pb-2">就業規則</div>
+                 <div className="space-y-2 opacity-50 blur-[0.5px]">
+                    <div className="w-full h-2 bg-slate-200 rounded"></div>
+                    <div className="w-full h-2 bg-slate-200 rounded"></div>
+                    <div className="w-2/3 h-2 bg-slate-200 rounded"></div>
+                 </div>
+                 <div className="my-4 space-y-1">
+                    <div className="font-bold text-slate-800 text-[10px] mb-1">第4章 交通費</div>
+                    <div className="bg-yellow-100/50 p-1 border border-yellow-200 text-slate-800 leading-tight">
+                       第12条 通勤交通費は、最も合理的かつ経済的な経路により算出した額とし、<span className="bg-yellow-200 font-bold">月額30,000円を限度</span>として支給する。
+                    </div>
+                 </div>
+                 <div className="space-y-2 opacity-50 blur-[0.5px]">
+                    <div className="w-full h-2 bg-slate-200 rounded"></div>
+                    <div className="w-full h-2 bg-slate-200 rounded"></div>
+                 </div>
+              </div>
            </div>
         </div>
       </div>
@@ -480,7 +708,7 @@ export default function Home() {
                   {item.desc}
                 </p>
                 <div className="mt-4 text-sm font-bold text-blue-600 flex items-center">
-                  仕組み・図解を見る <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
+                  仕組み・デモ画面を見る <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
                 </div>
               </button>
             ))}
@@ -532,9 +760,6 @@ export default function Home() {
                 AIは一部の大企業だけのものではありません。むしろ、人手不足に悩む中小企業にこそ、その恩恵が必要です。<br/><br/>
                 私たちは、最新の技術を「誰にでも使える形」にして提供し、御社の頼れるデジタルパートナーとして伴走します。まずは小さく、未来への一歩を踏み出しましょう。
               </p>
-              <div className="font-bold text-white">
-                Smart City AI LLC <span className="font-normal text-zinc-400 text-sm ml-2">代表</span>
-              </div>
             </div>
             <div className="w-24 h-24 md:w-32 md:h-32 bg-zinc-800 rounded-full flex items-center justify-center border-2 border-zinc-700">
                <span className="text-4xl">🤝</span>
@@ -585,38 +810,37 @@ export default function Home() {
       </div>
 
       {/* --------------------------------------------------------- */}
-      {/* 強化版モーダル（ポップアップ） */}
+      {/* 強化版モーダル（フルスクリーン対応） */}
       {/* --------------------------------------------------------- */}
       {selectedCase && (
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm transition-opacity"
+          className="fixed inset-0 z-50 flex items-center justify-center p-2 md:p-4 bg-black/80 backdrop-blur-sm transition-opacity"
           onClick={() => setSelectedCase(null)}
         >
           <div 
-            className="bg-white rounded-2xl shadow-2xl w-full max-w-5xl h-[85vh] overflow-hidden relative animate-in fade-in zoom-in duration-200 flex flex-col md:flex-row"
+            className="bg-white rounded-2xl shadow-2xl w-full max-w-7xl h-[95vh] overflow-hidden relative animate-in fade-in zoom-in duration-200 flex flex-col md:flex-row"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* 左側：ビジュアルエリア（60%） - AIダッシュボード風 */}
-            <div className="w-full md:w-[60%] bg-zinc-50 p-6 md:p-8 border-b md:border-b-0 md:border-r border-zinc-200 flex flex-col">
-               <div className="flex items-center gap-3 mb-6">
-                 <span className="text-3xl">{selectedCase.icon}</span>
-                 <h3 className="text-xl font-bold text-zinc-800">{selectedCase.title}</h3>
-               </div>
-               
-               {/* 図解コンポーネントエリア：ここがメイン */}
-               <div className="flex-grow relative rounded-xl shadow-sm border border-zinc-200 overflow-hidden bg-white">
+            {/* 左側：ビジュアルエリア（70%） - プロ仕様ダッシュボード */}
+            <div className="w-full md:w-[70%] bg-zinc-900 p-2 md:p-4 border-b md:border-b-0 md:border-r border-zinc-800 flex flex-col relative">
+               {/* 閉じるボタン (スマホ用) */}
+               <button 
+                  onClick={() => setSelectedCase(null)}
+                  className="md:hidden absolute top-4 right-4 z-50 bg-white/20 text-white rounded-full p-2"
+               >
+                  ✕
+               </button>
+
+               {/* 図解コンポーネントエリア */}
+               <div className="flex-grow relative rounded-lg overflow-hidden bg-black shadow-2xl">
                  {selectedCase.visual}
                </div>
-               
-               <p className="text-center text-xs text-zinc-400 mt-3 font-mono">
-                 ※ AI処理のイメージデモンストレーション
-               </p>
             </div>
 
-            {/* 右側：テキストエリア（40%） */}
-            <div className="w-full md:w-[40%] flex flex-col bg-white">
-              {/* 閉じるボタン */}
-              <div className="flex justify-end p-4">
+            {/* 右側：テキストエリア（30%） */}
+            <div className="w-full md:w-[30%] flex flex-col bg-white h-full">
+              {/* 閉じるボタン (PC用) */}
+              <div className="hidden md:flex justify-end p-4">
                 <button 
                   onClick={() => setSelectedCase(null)}
                   className="text-zinc-400 hover:text-zinc-600 bg-zinc-100 rounded-full p-2 hover:bg-zinc-200 transition"
@@ -626,23 +850,26 @@ export default function Home() {
               </div>
 
               <div className="px-6 pb-6 overflow-y-auto flex-grow">
-                <div className="mb-6">
-                   <h4 className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2">TARGET</h4>
-                   <span className="inline-block bg-blue-50 text-blue-800 text-xs px-3 py-1 rounded-full font-bold">
-                     {selectedCase.target} 向け
-                   </span>
+                <div className="mb-4">
+                   <div className="flex items-center gap-3 mb-2">
+                     <span className="text-2xl">{selectedCase.icon}</span>
+                     <span className="inline-block bg-blue-50 text-blue-800 text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider border border-blue-100">
+                       {selectedCase.target}
+                     </span>
+                   </div>
+                   <h3 className="text-xl font-bold text-zinc-900 leading-tight">{selectedCase.title}</h3>
                 </div>
 
-                <div className="mb-8">
-                   <h4 className="text-lg font-bold text-zinc-900 mb-3">具体的な仕組み</h4>
+                <div className="mb-6">
+                   <h4 className="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2">Mechanism</h4>
                    <p className="text-sm text-zinc-600 leading-relaxed">
                      {selectedCase.detail}
                    </p>
                 </div>
 
-                <div className="bg-emerald-50 p-5 rounded-xl border border-emerald-100 mb-8">
-                   <h4 className="text-sm font-bold text-emerald-800 mb-2 flex items-center">
-                     <span className="mr-2">✨</span> 期待される効果
+                <div className="bg-emerald-50 p-4 rounded-xl border border-emerald-100 mb-6">
+                   <h4 className="text-xs font-bold text-emerald-700 mb-2 flex items-center uppercase tracking-widest">
+                     <span className="mr-2 text-lg">✨</span> Benefit
                    </h4>
                    <p className="text-emerald-900 text-sm font-medium leading-relaxed">
                      {selectedCase.benefit}
@@ -651,15 +878,15 @@ export default function Home() {
               </div>
 
               {/* CTAエリア（固定） */}
-              <div className="p-6 border-t border-zinc-100 bg-zinc-50 mt-auto">
+              <div className="p-6 border-t border-zinc-100 bg-zinc-50 mt-auto shadow-[0_-5px_15px_rgba(0,0,0,0.05)]">
                 <a 
                   href={`mailto:tetsuya.nakajima@smartcityai.co.jp?subject=【${selectedCase.title}】について相談したい`}
                   className="block w-full text-center bg-blue-600 text-white font-bold py-4 rounded-xl hover:bg-blue-700 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                 >
-                  この事例について無料相談する
+                  無料相談・見積もり依頼
                 </a>
                 <p className="text-center text-[10px] text-zinc-400 mt-2">
-                  メーラーが起動します。お気軽にご連絡ください。
+                  ※ 実際のデモをご覧になりたい方もこちら
                 </p>
               </div>
             </div>
