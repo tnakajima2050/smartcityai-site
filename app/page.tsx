@@ -98,13 +98,8 @@ export default function Home() {
             {/* ... ボタン ... */}
           </div>
         </section>
-
-        //{/* フッター */}  <-- フッターはそのまま残します -->
-        //<footer className="mt-auto pt-16 text-xs text-zinc-400 text-center">
-        
-
-        //{/* フッター */}
-        //<footer className="mt-auto pt-16 text-xs text-zinc-400 text-center">
+        {/* フッター */}
+        <footer className="mt-auto pt-16 text-xs text-zinc-400 text-center">
           © 2025 Smart City AI LLC. All rights reserved.
         </footer>
       </div>
