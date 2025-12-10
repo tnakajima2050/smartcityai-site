@@ -544,7 +544,7 @@ const faqs = [
   {
     q: "費用はどのくらいかかりますか？",
     answer: "スモールスタートを推奨しており、数十万円からのプランもございます。",
-    detail: "いきなり数百万円のシステムを作るのではなく、まずは最小限の機能で効果を検証する「PoC（実証実験）」から始めることをお勧めしています。また、IT導入補助金などの公的支援の活用サポートも行っており、実質的な負担を抑えた導入が可能です。"
+    detail: "いきなり数百万円のシステムを作るのではなく、まずは最小限の機能で効果を検証する「PoC（試作版）」から始めることをお勧めしています。また、IT導入補助金などの公的支援の活用サポートも行っており、実質的な負担を抑えた導入が可能です。"
   },
   {
     q: "既存のシステムと連携できますか？",
@@ -630,14 +630,14 @@ export default function Home() {
               <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center text-2xl mb-4">🎯</div>
               <h3 className="font-bold text-lg text-blue-900 mb-2">御社専用のオーダーメイド</h3>
               <p className="text-sm text-zinc-600 leading-relaxed">
-                パッケージ製品の押し売りはしません。御社の業務フローを徹底的にヒアリングし、本当に必要な機能だけを設計・開発します。
+                御社の業務フローを徹底的にヒアリングし、本当に必要な機能だけを設計・開発します。
               </p>
             </div>
             <div className="bg-white p-6 rounded-xl border border-blue-100 shadow-sm hover:shadow-md transition">
               <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center text-2xl mb-4">✨</div>
-              <h3 className="font-bold text-lg text-blue-900 mb-2">リスク最小限のPoC開発</h3>
+              <h3 className="font-bold text-lg text-blue-900 mb-2">リスク最小限のPoC（試作版）開発</h3>
               <p className="text-sm text-zinc-600 leading-relaxed">
-                いきなり数百万円は使いません。まずは最小限のコストで試作版（PoC）を作り、効果を確認してから本格導入へ進みます。
+                いきなり数百万円は使いません。まずは最小限のコストでPoC（試作版）を作り、効果を確認してから本格導入へ進みます。
               </p>
             </div>
             <div className="bg-white p-6 rounded-xl border border-blue-100 shadow-sm hover:shadow-md transition">
@@ -665,7 +665,7 @@ export default function Home() {
             <div className="grid gap-4 md:grid-cols-4 relative">
               {[
                 { step: "01", title: "ヒアリング", desc: "現状の業務課題や、「こうなったらいいな」という理想をお聞かせください。" },
-                { step: "02", title: "ご提案・PoC", desc: "解決策をご提案。必要に応じて試作版（PoC）を作成し、効果を検証します。" },
+                { step: "02", title: "ご提案・PoC（試作版）", desc: "解決策をご提案。必要に応じてPoC（試作版）を作成し、効果を検証します。" },
                 { step: "03", title: "本開発・実装", desc: "検証結果に基づき、実際の業務で使えるシステムを開発・導入します。" },
                 { step: "04", title: "運用・サポート", desc: "導入後の改善や、使い方のサポートも継続的に行います。" },
               ].map((item, i) => (
