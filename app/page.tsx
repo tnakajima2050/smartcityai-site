@@ -538,19 +538,23 @@ const useCases = [
 const faqs = [
   {
     q: "AIの知識が全くなくても大丈夫ですか？",
-    a: "はい、全く問題ありません。技術的なことは全て弊社が担当します。お客様は「どんな業務を楽にしたいか」という課題だけお話しください。"
+    answer: "はい、全く問題ありません。専門知識は一切不要です。",
+    detail: "技術的な選定、開発、運用はすべて弊社が担当します。お客様には「今の業務のどこが大変か」「どうなれば楽になるか」という課題感だけをお話しいただければ、最適な解決策を専門用語を使わずにご提案いたします。"
   },
   {
     q: "費用はどのくらいかかりますか？",
-    a: "スモールスタートを推奨しているため、数十万円からのPoC（実証実験）プランもご用意しています。また、IT導入補助金などの活用支援も行っています。"
+    answer: "スモールスタートを推奨しており、数十万円からのプランもございます。",
+    detail: "いきなり数百万円のシステムを作るのではなく、まずは最小限の機能で効果を検証する「PoC（実証実験）」から始めることをお勧めしています。また、IT導入補助金などの公的支援の活用サポートも行っており、実質的な負担を抑えた導入が可能です。"
   },
   {
     q: "既存のシステムと連携できますか？",
-    a: "はい、可能です。kintone、Salesforce、社内データベースなど、現在お使いのシステムにAI機能をアドオンする形での開発を得意としています。"
+    answer: "はい、可能です。現在お使いのシステムと柔軟に連携します。",
+    detail: "kintone、Salesforce、Chatwork、LINE、あるいは自社独自のデータベースなど、既存のツールを活かしたままAI機能だけを「アドオン（追加）」する開発を得意としています。業務フローを大きく変えることなく、生産性を向上させることができます。"
   },
   {
     q: "開発期間はどのくらいですか？",
-    a: "簡易的なプロトタイプであれば最短2週間〜1ヶ月でご提示可能です。まずは効果が出るかを確認してから、本開発に進むことができます。"
+    answer: "最短2週間〜1ヶ月程度でプロトタイプをご提示可能です。",
+    detail: "まずは動くもの（試作版）を早期に触っていただくことを重視しています。そこで効果を確認していただき、フィードバックを反映させながら本開発へ進むため、開発期間が長引いて「結局使えないものができた」という失敗を防ぎます。"
   }
 ];
 
@@ -716,7 +720,7 @@ export default function Home() {
         </section>
 
 
-        {/* --------------------------------------------------------- */}
+       {/* --------------------------------------------------------- */}
         {/* 5. FAQ */}
         {/* --------------------------------------------------------- */}
         <section className="mb-24 max-w-3xl mx-auto w-full">
@@ -725,21 +729,33 @@ export default function Home() {
           </div>
           <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <div key={index} className="border border-zinc-200 rounded-lg bg-white overflow-hidden">
+              <div key={index} className="border border-zinc-200 rounded-lg bg-white overflow-hidden shadow-sm">
                 <button
                   onClick={() => toggleFaq(index)}
                   className="w-full flex justify-between items-center p-5 text-left bg-zinc-50 hover:bg-zinc-100 transition"
                 >
-                  <span className="font-bold text-zinc-800 text-sm md:text-base">Q. {faq.q}</span>
-                  <span className={`transform transition-transform duration-200 text-blue-600 font-bold ${openFaqIndex === index ? 'rotate-180' : ''}`}>
+                  <span className="font-bold text-zinc-800 text-sm md:text-base flex items-center">
+                    <span className="text-blue-600 mr-3 text-lg">Q.</span>
+                    {faq.q}
+                  </span>
+                  <span className={`transform transition-transform duration-200 text-blue-400 font-bold ${openFaqIndex === index ? 'rotate-180' : ''}`}>
                     ▼
                   </span>
                 </button>
                 {openFaqIndex === index && (
-                  <div className="p-5 border-t border-zinc-200 bg-white">
-                    <p className="text-sm text-zinc-600 leading-relaxed">
-                      <span className="font-bold text-emerald-600 mr-2">A.</span>
-                      {faq.a}
+                  <div className="p-6 border-t border-zinc-200 bg-white animate-in slide-in-from-top-2 duration-200">
+                    {/* 1. 結論（簡潔に） */}
+                    <p className="text-base font-bold text-emerald-700 mb-4 flex items-start">
+                      <span className="mr-3 text-lg">A.</span>
+                      {faq.answer}
+                    </p>
+                    
+                    {/* 2. 余白と区切り線 */}
+                    <hr className="border-dashed border-zinc-200 mb-4" />
+                    
+                    {/* 3. 詳細説明（理由付け） */}
+                    <p className="text-sm text-zinc-600 leading-relaxed pl-8">
+                      {faq.detail}
                     </p>
                   </div>
                 )}
