@@ -591,8 +591,8 @@ export default function Home() {
 
           {/* メインコピー */}
           <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl text-blue-900 leading-tight">
-            日本の企業に「AIの力」を。<br />
-            <span className="text-emerald-600">生産性革命</span>で未来を創る。
+            日本の企業に「AIの力」を<br />
+            <span className="text-emerald-600">生産性革命</span>で未来を創る
           </h1>
           
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-700">
