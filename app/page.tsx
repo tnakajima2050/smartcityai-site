@@ -642,9 +642,9 @@ export default function Home() {
             </div>
             <div className="bg-white p-6 rounded-xl border border-blue-100 shadow-sm hover:shadow-md transition">
               <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center text-2xl mb-4">💰</div>
-              <h3 className="font-bold text-lg text-blue-900 mb-2">補助金活用で低コスト</h3>
+              <h3 className="font-bold text-lg text-blue-900 mb-2">コストを抑えるための柔軟なご提案</h3>
               <p className="text-sm text-zinc-600 leading-relaxed">
-                IT導入補助金などの公的支援の活用もサポート。最新技術を、中小企業様でも導入しやすい現実的な価格で提供します。
+                補助金（IT導入補助金等）活用の可否を含め、御社の状況に合わせた最適な予算プランをご提案します。公的支援の活用検討からお手伝いし、導入コストの最小化を一緒に目指します。
               </p>
             </div>
           </div>
