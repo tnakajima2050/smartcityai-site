@@ -609,8 +609,8 @@ export default function Home() {
             >
               まずは無料相談で可能性を探る &rarr;
             </a>
-            <p className="text-xs text-zinc-500 mt-2 sm:mt-0 sm:ml-4 flex items-center">
-              ※ 無理な営業は一切いたしません。<br className="sm:hidden"/>メール一本でお気軽にご連絡ください。
+            <p className="text-sm text-zinc-600 mt-3 sm:mt-0 sm:ml-4 flex items-center font-medium">
+              メール一本でお気軽にご連絡ください。
             </p>
           </div>
         </header>
