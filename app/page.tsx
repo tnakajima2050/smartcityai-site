@@ -651,7 +651,7 @@ export default function Home() {
         </section>
 
 
-       {/* --------------------------------------------------------- */}
+      {/* --------------------------------------------------------- */}
         {/* 3. プロセス：導入の流れ */}
         {/* --------------------------------------------------------- */}
         <section className="mb-24 bg-blue-50/50 -mx-6 px-6 py-16">
@@ -662,9 +662,7 @@ export default function Home() {
               <p className="text-sm text-zinc-600 mt-2">丸投げでOK。技術的なことは全て私たちにお任せください。</p>
             </div>
 
-            {/* gap-16: スマホ用に縦の間隔を大きく確保（矢印用）
-                md:gap-8: PC用に横の間隔を確保
-            */}
+            {/* 矢印用のスペース確保のため gap を調整 */}
             <div className="grid gap-16 md:grid-cols-4 md:gap-8 relative">
               {[
                 { step: "01", title: "ヒアリング", desc: "現状の業務課題や、「こうなったらいいな」という理想をお聞かせください。" },
@@ -683,14 +681,18 @@ export default function Home() {
                   {/* 矢印（最後のカード以外に追加） */}
                   {i < 3 && (
                     <>
-                      {/* ▼ PC用: 右矢印（箱の右側の隙間に配置） */}
-                      <div className="hidden md:flex absolute top-1/2 -right-8 transform -translate-y-1/2 z-0 justify-center items-center w-8 h-8">
-                        <span className="text-blue-600 text-4xl font-extrabold">→</span>
+                      {/* ▼ PC用: 右矢印（太いSVGアイコンを使用） */}
+                      <div className="hidden md:flex absolute top-1/2 -right-10 transform -translate-y-1/2 z-0 justify-center items-center w-12 h-12 text-blue-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={4} stroke="currentColor" className="w-8 h-8">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                        </svg>
                       </div>
 
-                      {/* ▼ スマホ用: 下矢印（箱の下側の隙間に配置） */}
-                      <div className="flex md:hidden absolute -bottom-12 left-1/2 transform -translate-x-1/2 z-0 justify-center items-center w-8 h-8">
-                        <span className="text-blue-600 text-4xl font-extrabold">↓</span>
+                      {/* ▼ スマホ用: 下矢印（太いSVGアイコンを使用） */}
+                      <div className="flex md:hidden absolute -bottom-14 left-1/2 transform -translate-x-1/2 z-0 justify-center items-center w-12 h-12 text-blue-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={4} stroke="currentColor" className="w-8 h-8">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
+                        </svg>
                       </div>
                     </>
                   )}
