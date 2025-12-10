@@ -651,7 +651,7 @@ export default function Home() {
         </section>
 
 
-        {/* --------------------------------------------------------- */}
+       {/* --------------------------------------------------------- */}
         {/* 3. プロセス：導入の流れ */}
         {/* --------------------------------------------------------- */}
         <section className="mb-24 bg-blue-50/50 -mx-6 px-6 py-16">
@@ -662,17 +662,38 @@ export default function Home() {
               <p className="text-sm text-zinc-600 mt-2">丸投げでOK。技術的なことは全て私たちにお任せください。</p>
             </div>
 
-            <div className="grid gap-4 md:grid-cols-4 relative">
+            {/* gap-16: スマホ用に縦の間隔を大きく確保（矢印用）
+                md:gap-8: PC用に横の間隔を確保
+            */}
+            <div className="grid gap-16 md:grid-cols-4 md:gap-8 relative">
               {[
                 { step: "01", title: "ヒアリング", desc: "現状の業務課題や、「こうなったらいいな」という理想をお聞かせください。" },
-                { step: "02", title: "ご提案・PoC（試作版）", desc: "解決策をご提案。必要に応じてPoC（試作版）を作成し、効果を検証します。" },
+                { step: "02", title: "ご提案・PoC", desc: "解決策をご提案。必要に応じて試作版（PoC）を作成し、効果を検証します。" },
                 { step: "03", title: "本開発・実装", desc: "検証結果に基づき、実際の業務で使えるシステムを開発・導入します。" },
                 { step: "04", title: "運用・サポート", desc: "導入後の改善や、使い方のサポートも継続的に行います。" },
               ].map((item, i) => (
-                <div key={i} className="relative bg-white p-5 rounded-lg border border-blue-100 shadow-sm">
-                  <span className="text-4xl font-black text-blue-100 absolute top-2 right-4">{item.step}</span>
-                  <h4 className="font-bold text-blue-900 relative z-10">{item.title}</h4>
-                  <p className="text-xs text-zinc-600 mt-2 relative z-10 leading-5">{item.desc}</p>
+                <div key={i} className="relative">
+                  {/* カード本体 */}
+                  <div className="relative bg-white p-5 rounded-lg border border-blue-100 shadow-sm h-full z-10">
+                    <span className="text-4xl font-black text-blue-100 absolute top-2 right-4">{item.step}</span>
+                    <h4 className="font-bold text-blue-900 relative z-10">{item.title}</h4>
+                    <p className="text-xs text-zinc-600 mt-2 relative z-10 leading-5">{item.desc}</p>
+                  </div>
+                  
+                  {/* 矢印（最後のカード以外に追加） */}
+                  {i < 3 && (
+                    <>
+                      {/* ▼ PC用: 右矢印（箱の右側の隙間に配置） */}
+                      <div className="hidden md:flex absolute top-1/2 -right-8 transform -translate-y-1/2 z-0 justify-center items-center w-8 h-8">
+                        <span className="text-blue-600 text-4xl font-extrabold">→</span>
+                      </div>
+
+                      {/* ▼ スマホ用: 下矢印（箱の下側の隙間に配置） */}
+                      <div className="flex md:hidden absolute -bottom-12 left-1/2 transform -translate-x-1/2 z-0 justify-center items-center w-8 h-8">
+                        <span className="text-blue-600 text-4xl font-extrabold">↓</span>
+                      </div>
+                    </>
+                  )}
                 </div>
               ))}
             </div>
