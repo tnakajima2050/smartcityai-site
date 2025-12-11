@@ -796,7 +796,7 @@ export default function Home() {
             <div className="flex-1">
               <h3 className="text-2xl font-bold text-white mb-4">日本の生産性を、AIで底上げする。</h3>
               <p className="leading-relaxed mb-6 text-sm md:text-base">
-                AIにはもちろん弊害がありますが、上手に利用すれば、人々の生活を便利にし、企業の経営をスピードアップし、都市をスマートにします。<br/><br/>
+                AIにはもちろん弊害がありますが、上手に利用すれば、<br/><br/>人々の生活を便利にし、企業の経営をスピードアップし、都市をスマートにします。<br/><br/>
                 私たちは、最新の技術を「誰にでも使える形」にして提供し、御社の頼れるAIパートナーとして伴走します。まずは小さく、未来への一歩を踏み出しましょう。
               </p>
             </div>
