@@ -561,6 +561,7 @@ const faqs = [
 export default function Home() {
   const [selectedCase, setSelectedCase] = useState<typeof useCases[0] | null>(null);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false); // カレンダー用の状態管理
 
   const toggleFaq = (index: number) => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
@@ -601,14 +602,14 @@ export default function Home() {
             高額な投資は不要。まずは成果が出るか、小さな実験から始めましょう。
           </p>
 
-          {/* CTAボタン */}
+          {/* CTAボタン（予約カレンダー起動） */}
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
-            <a 
-              href="mailto:tetsuya.nakajima@smartcityai.co.jp"
+            <button 
+              onClick={() => setIsCalendarOpen(true)}
               className="inline-flex items-center justify-center rounded-lg bg-emerald-600 px-8 py-4 text-base font-bold text-white shadow-xl transition hover:bg-emerald-700 hover:-translate-y-0.5"
             >
               まずは無料相談で可能性を探る &rarr;
-            </a>
+            </button>
             <p className="text-sm text-zinc-600 mt-3 sm:mt-0 sm:ml-4 flex items-center font-medium">
               メール一本でお気軽にご連絡ください。
             </p>
@@ -651,7 +652,7 @@ export default function Home() {
         </section>
 
 
-      {/* --------------------------------------------------------- */}
+        {/* --------------------------------------------------------- */}
         {/* 3. プロセス：導入の流れ */}
         {/* --------------------------------------------------------- */}
         <section className="mb-24 bg-blue-50/50 -mx-6 px-6 py-16">
@@ -743,7 +744,7 @@ export default function Home() {
         </section>
 
 
-       {/* --------------------------------------------------------- */}
+        {/* --------------------------------------------------------- */}
         {/* 5. FAQ */}
         {/* --------------------------------------------------------- */}
         <section className="mb-24 max-w-3xl mx-auto w-full">
@@ -767,16 +768,11 @@ export default function Home() {
                 </button>
                 {openFaqIndex === index && (
                   <div className="p-6 border-t border-zinc-200 bg-white animate-in slide-in-from-top-2 duration-200">
-                    {/* 1. 結論（簡潔に） */}
                     <p className="text-base font-bold text-emerald-700 mb-4 flex items-start">
                       <span className="mr-3 text-lg">A.</span>
                       {faq.answer}
                     </p>
-                    
-                    {/* 2. 余白と区切り線 */}
                     <hr className="border-dashed border-zinc-200 mb-4" />
-                    
-                    {/* 3. 詳細説明（理由付け） */}
                     <p className="text-sm text-zinc-600 leading-relaxed pl-8">
                       {faq.detail}
                     </p>
@@ -927,6 +923,44 @@ export default function Home() {
                 <p className="text-center text-[10px] text-zinc-400 mt-2">
                   ※ 実際のデモをご覧になりたい方もこちら
                 </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* --------------------------------------------------------- */}
+      {/* 予約カレンダーモダール（Microsoft Bookings埋め込み版） */}
+      {/* --------------------------------------------------------- */}
+      {isCalendarOpen && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-in fade-in duration-200"
+          onClick={() => setIsCalendarOpen(false)}
+        >
+          <div 
+            className="bg-white rounded-lg shadow-2xl w-full max-w-5xl h-[85vh] overflow-hidden font-sans flex flex-col"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* ヘッダー */}
+            <div className="bg-emerald-600 text-white p-4 flex justify-between items-center flex-shrink-0">
+              <div className="font-bold text-lg flex items-center gap-2">
+                <span className="text-2xl">📅</span> 無料相談 予約カレンダー
+              </div>
+              <button onClick={() => setIsCalendarOpen(false)} className="text-white hover:bg-emerald-700 rounded-full p-1 px-3 text-sm font-bold bg-emerald-500/50 transition">✕ 閉じる</button>
+            </div>
+
+            {/* カレンダー本体 (Microsoft Bookings iframe) */}
+            <div className="flex-grow bg-white relative">
+              <iframe 
+                src="https://outlook.office365.com/owa/calendar/SmartCityAI1@smartcityai.co.jp/bookings/" 
+                className="w-full h-full border-none"
+                title="無料相談予約"
+                loading="lazy"
+              ></iframe>
+              
+              {/* 読み込み中の表示 */}
+              <div className="absolute inset-0 flex items-center justify-center -z-10 text-zinc-400">
+                <span className="animate-pulse">カレンダーを読み込んでいます...</span>
               </div>
             </div>
           </div>
