@@ -817,7 +817,7 @@ export default function Home() {
                 Smart City AI LLC
               </h3>
               <p className="text-xs leading-5">
-                横浜を拠点に、日本全国の中小企業の<br />AI導入・DX推進をサポートしています。
+                横浜を拠点に、企業の<br />AI導入・DX推進をサポートしています。
               </p>
             </div>
             <div>
