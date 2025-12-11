@@ -598,7 +598,7 @@ export default function Home() {
           
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-700">
             「AIを使いたいが、何から始めればいいかわからない」<br />
-            そんな経営者様の悩みを、確かな技術とスモールスタート戦略で解決します。
+            そんな経営者様の悩みを、確かな技術とスモールスタート戦略で解決します。<br />
             高額な投資は不要。まずは成果が出るか、小さな実験から始めましょう。
           </p>
 
