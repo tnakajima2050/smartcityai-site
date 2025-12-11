@@ -534,7 +534,7 @@ const useCases = [
   }
 ];
 
-// ▼ データ定義：よくある質問
+// ▼ データ定義：よくある質問（結論ファースト構成）
 const faqs = [
   {
     q: "AIの知識が全くなくても大丈夫ですか？",
@@ -544,7 +544,7 @@ const faqs = [
   {
     q: "費用はどのくらいかかりますか？",
     answer: "スモールスタートを推奨しており、数十万円からのプランもございます。",
-    detail: "いきなり数百万円のシステムを作るのではなく、まずは最小限の機能で効果を検証する「PoC（試作版）」から始めることをお勧めしています。また、IT導入補助金などの公的支援の活用サポートも行っており、実質的な負担を抑えた導入が可能です。"
+    detail: "いきなり数百万円のシステムを作るのではなく、まずは最小限の機能で効果を検証する「PoC（実証実験）」から始めることをお勧めしています。また、IT導入補助金などの公的支援について、お客様の条件に合致するか確認し、申請に必要な情報提供と支援を行います。実質的な負担を抑えた導入を目指します。"
   },
   {
     q: "既存のシステムと連携できますか？",
@@ -592,8 +592,8 @@ export default function Home() {
 
           {/* メインコピー */}
           <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl text-blue-900 leading-tight">
-            日本の企業に「AIの力」を <br />
-            <span className="text-emerald-600">生産性革命</span>で未来を創る
+            日本の企業に「AIの力」を。<br />
+            <span className="text-emerald-600">生産性革命</span>で未来を創る。
           </h1>
           
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-700">
@@ -631,21 +631,22 @@ export default function Home() {
               <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center text-2xl mb-4">🎯</div>
               <h3 className="font-bold text-lg text-blue-900 mb-2">御社専用のオーダーメイド</h3>
               <p className="text-sm text-zinc-600 leading-relaxed">
-                御社の業務フローを徹底的にヒアリングし、本当に必要な機能だけを設計・開発します。
+                パッケージ製品の押し売りはしません。御社の業務フローを徹底的にヒアリングし、本当に必要な機能だけを設計・開発します。
               </p>
             </div>
             <div className="bg-white p-6 rounded-xl border border-blue-100 shadow-sm hover:shadow-md transition">
               <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center text-2xl mb-4">✨</div>
-              <h3 className="font-bold text-lg text-blue-900 mb-2">リスク最小限のPoC（試作版）開発</h3>
+              <h3 className="font-bold text-lg text-blue-900 mb-2">リスク最小限のPoC開発</h3>
               <p className="text-sm text-zinc-600 leading-relaxed">
-                いきなり数百万円は使いません。まずは最小限のコストでPoC（試作版）を作り、効果を確認してから本格導入へ進みます。
+                いきなり数百万円は使いません。まずは最小限のコストで試作版（PoC）を作り、効果を確認してから本格導入へ進みます。
               </p>
             </div>
+            {/* 補助金テキスト修正版 */}
             <div className="bg-white p-6 rounded-xl border border-blue-100 shadow-sm hover:shadow-md transition">
               <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center text-2xl mb-4">💰</div>
-              <h3 className="font-bold text-lg text-blue-900 mb-2">コストを抑えるための柔軟なご提案</h3>
+              <h3 className="font-bold text-lg text-blue-900 mb-2">コスト効率の良いIT導入</h3>
               <p className="text-sm text-zinc-600 leading-relaxed">
-                補助金（IT導入補助金等）活用の可否を含め、御社の状況に合わせた最適な予算プランをご提案します。公的支援の活用検討からお手伝いし、導入コストの最小化を一緒に目指します。
+                公的支援制度（補助金など）の適用可能性を診断し、申請を支援します。最新技術を、中小企業様でも導入しやすい現実的な価格で提供します。
               </p>
             </div>
           </div>
@@ -745,7 +746,7 @@ export default function Home() {
 
 
         {/* --------------------------------------------------------- */}
-        {/* 5. FAQ */}
+        {/* 5. FAQ（結論ファースト構成） */}
         {/* --------------------------------------------------------- */}
         <section className="mb-24 max-w-3xl mx-auto w-full">
           <div className="text-center mb-10">
@@ -792,8 +793,8 @@ export default function Home() {
             <div className="flex-1">
               <h3 className="text-2xl font-bold text-white mb-4">日本の生産性を、AIで底上げする。</h3>
               <p className="leading-relaxed mb-6 text-sm md:text-base">
-                AIにはもちろん弊害がありますが、上手に利用すれば、<br/><br/>人々の生活を便利にし、企業の経営をスピードアップし、都市をスマートにします。<br/><br/>
-                私たちは、最新の技術を「誰にでも使える形」にして提供し、御社の頼れるAIパートナーとして伴走します。まずは小さく、未来への一歩を踏み出しましょう。
+                AIは一部の大企業だけのものではありません。むしろ、人手不足に悩む中小企業にこそ、その恩恵が必要です。<br/><br/>
+                私たちは、最新の技術を「誰にでも使える形」にして提供し、御社の頼れるデジタルパートナーとして伴走します。まずは小さく、未来への一歩を踏み出しましょう。
               </p>
             </div>
             <div className="w-24 h-24 md:w-32 md:h-32 bg-zinc-800 rounded-full flex items-center justify-center border-2 border-zinc-700">
@@ -813,7 +814,7 @@ export default function Home() {
                 Smart City AI LLC
               </h3>
               <p className="text-xs leading-5">
-                横浜を拠点に、企業の<br />AI導入・DX推進をサポートしています。
+                横浜を拠点に、日本全国の中小企業の<br />AI導入・DX推進をサポートしています。
               </p>
             </div>
             <div>
@@ -914,12 +915,12 @@ export default function Home() {
 
               {/* CTAエリア（固定） */}
               <div className="p-6 border-t border-zinc-100 bg-zinc-50 mt-auto shadow-[0_-5px_15px_rgba(0,0,0,0.05)]">
-                <a 
-                  href={`mailto:tetsuya.nakajima@smartcityai.co.jp?subject=【${selectedCase.title}】について相談したい`}
+                <button 
+                  onClick={() => { setSelectedCase(null); setIsCalendarOpen(true); }}
                   className="block w-full text-center bg-blue-600 text-white font-bold py-4 rounded-xl hover:bg-blue-700 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                 >
                   無料相談・見積もり依頼
-                </a>
+                </button>
                 <p className="text-center text-[10px] text-zinc-400 mt-2">
                   ※ 実際のデモをご覧になりたい方もこちら
                 </p>
@@ -929,7 +930,7 @@ export default function Home() {
         </div>
       )}
 
-     {/* --------------------------------------------------------- */}
+      {/* --------------------------------------------------------- */}
       {/* 予約カレンダーモダール（Microsoft Bookings埋め込み版・UX改善） */}
       {/* --------------------------------------------------------- */}
       {isCalendarOpen && (
@@ -989,3 +990,7 @@ export default function Home() {
           </div>
         </div>
       )}
+
+    </main>
+  );
+}
