@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 // ------------------------------------------------------------------
 // ▼ データ定義：6つの活用事例
-//   【修正完了】全事例を「画面いっぱいの高密度UI」に全面刷新
+//   【修正完了】事例1を「MIT根拠＋案A（書類の山vs結晶）ビジュアル」に完全刷新
 // ------------------------------------------------------------------
 const useCases = [
   {
@@ -13,79 +13,82 @@ const useCases = [
     icon: "✍️",
     title: "定型文書の自動化",
     target: "士業・事務",
-    desc: "報告書、契約書、議事録のドラフトを数秒で自動作成。",
-    detail: "過去の書類データとひな形をAIに学習させ、キーワードを入力するだけでドラフトが完成する仕組みです。",
-    benefit: "書類作成にかかる時間を大幅に短縮し、専門家としてのチェック業務に集中できる環境を作ります。",
-    // 【修正】高密度なAIエディタ画面（パラメータサイドバー付き）
+    // ▼ 1ページ目：インパクトと対象を明確に（手入力・転記）
+    desc: "作成時間を90%以上削減。1時間かかっていた『手入力・転記』業務が、わずか5分で完結します。",
+    // ▼ 2ページ目：MITの権威＋試算根拠（注釈付き）
+    detail: (
+      <>
+        <p className="mb-4">
+          MIT（マサチューセッツ工科大学）の研究<span className="text-blue-600 font-bold">※1</span> で、生成AIは文書作成の時間を40%短縮し、品質も向上させることが実証されています。
+        </p>
+        <p className="mb-6">
+          さらに本システムでは、「ゼロから考える時間」を完全になくし「入力と転記」に特化させることで、<span className="font-bold text-emerald-600">最大90%の工数削減</span><span className="text-blue-600 font-bold">※2</span> を実現します。
+        </p>
+        <div className="text-[10px] text-zinc-500 bg-zinc-100 p-3 rounded border border-zinc-200 space-y-2 leading-relaxed">
+          <p><span className="text-blue-600 font-bold">※1 [出典]</span> Noy, S., & Zhang, W. (2023). Experimental evidence on the productivity effects of generative artificial intelligence. Science.</p>
+          <p><span className="text-blue-600 font-bold">※2 [当社試算]</span> 従来60分（リサーチ15分＋手入力30分＋整合性確認15分）かかっていた業務を、AIにより5分（条件指定3分＋人による最終確認2分）に短縮した場合。</p>
+        </div>
+      </>
+    ),
+    benefit: "単純な作成業務を自動化し、人件費を大幅に圧縮。浮いた時間で、営業や顧客対応など「利益を生む業務」に集中できます。",
+    // ▼ ビジュアル：【案A】「書類の山(カオス)」vs「スマートな結晶(解決)」
     visual: (
-      <div className="h-full bg-zinc-100 flex flex-col overflow-hidden rounded-lg shadow-inner border border-zinc-300 font-sans text-xs">
-        {/* ツールバー */}
-        <div className="bg-zinc-800 text-zinc-300 p-2 flex items-center gap-4 shadow-md">
-           <div className="font-bold text-white tracking-wider">SmartDoc AI</div>
-           <div className="flex gap-2">
-             <span className="bg-zinc-700 px-2 py-0.5 rounded hover:bg-zinc-600 cursor-pointer">File</span>
-             <span className="bg-zinc-700 px-2 py-0.5 rounded hover:bg-zinc-600 cursor-pointer">Edit</span>
-             <span className="bg-zinc-700 px-2 py-0.5 rounded hover:bg-zinc-600 cursor-pointer">View</span>
-           </div>
-           <div className="ml-auto bg-blue-600 text-white px-3 py-0.5 rounded font-bold text-[10px] animate-pulse">AI GENERATING...</div>
-        </div>
-        {/* メインエリア */}
-        <div className="flex-grow flex">
-           {/* 左：パラメータ入力 (密度アップ) */}
-           <div className="w-1/4 bg-zinc-200 border-r border-zinc-300 p-3 flex flex-col gap-3">
-              <div className="font-bold text-zinc-600 border-b border-zinc-300 pb-1">PARAMETERS</div>
-              <div className="bg-white p-2 rounded border border-zinc-300">
-                <div className="text-[10px] text-zinc-400">ドキュメント種別</div>
-                <div className="font-bold text-zinc-800">事業譲渡契約書</div>
-              </div>
-              <div className="bg-white p-2 rounded border border-zinc-300">
-                <div className="text-[10px] text-zinc-400">甲（譲渡人）</div>
-                <div className="font-bold text-zinc-800">株式会社サンプル</div>
-              </div>
-              <div className="bg-white p-2 rounded border border-zinc-300">
-                <div className="text-[10px] text-zinc-400">乙（譲受人）</div>
-                <div className="font-bold text-zinc-800">スマートAI合同会社</div>
-              </div>
-              <div className="bg-white p-2 rounded border border-zinc-300 flex-grow">
-                <div className="text-[10px] text-zinc-400">特記事項</div>
-                <div className="text-zinc-600 leading-tight mt-1">
-                  ・従業員の処遇については別途覚書とする<br/>
-                  ・譲渡期日は2025年4月1日<br/>
-                  ・機密保持条項を含めること
-                </div>
-              </div>
-           </div>
-           {/* 右：プレビュー (余白を埋める) */}
-           <div className="w-3/4 bg-white p-6 overflow-y-auto relative">
-              {/* 用紙 */}
-              <div className="max-w-2xl mx-auto bg-white shadow-lg border border-zinc-100 min-h-[120%] p-8 text-zinc-800 relative">
-                 <h1 className="text-xl font-serif font-bold text-center mb-8 border-b-2 border-black pb-2">事業譲渡契約書（案）</h1>
-                 <div className="space-y-4 font-serif leading-relaxed text-sm">
-                   <p>株式会社サンプル（以下「甲」という。）とスマートAI合同会社（以下「乙」という。）とは、甲の営む〇〇事業の譲渡に関し、以下の通り契約を締結する。</p>
-                   
-                   <div className="pl-4 border-l-4 border-blue-200 bg-blue-50 p-2">
-                     <h2 className="font-bold mb-1 text-blue-800">第1条（目的）</h2>
-                     <p>甲は乙に対し、本契約の定めるところにより、甲の営む〇〇事業（以下「本件事業」という。）を譲渡し、乙はこれを譲り受ける。</p>
-                   </div>
-                   
-                   <div className="pl-4">
-                     <h2 className="font-bold mb-1">第2条（譲渡期日）</h2>
-                     <p>本件事業の譲渡期日は、<span className="bg-yellow-100 font-bold px-1">2025年4月1日</span>とする。ただし、必要に応じて甲乙協議の上これを変更することができる。</p>
-                   </div>
+      <div className="h-full bg-slate-50 flex flex-col rounded-lg border border-zinc-200 p-4 font-sans relative overflow-hidden">
+        <div className="text-center font-bold text-zinc-800 mb-6 z-10 relative">劇的ビフォーアフター</div>
+        
+        <div className="flex-grow flex items-center justify-around relative z-10 px-2 pb-4">
+          
+          {/* Left: Before (Chaos / 書類の山) */}
+          <div className="flex flex-col items-center group relative w-1/3">
+            <div className="text-xs font-bold text-red-500 mb-2 bg-red-50 px-2 py-0.5 rounded-full border border-red-100">Before (60分)</div>
+            <div className="relative w-24 h-32 flex items-center justify-center mt-2">
+               {/* 乱雑に積み重なる書類 (CSSで表現) */}
+               <div className="absolute w-20 h-28 bg-white border border-zinc-300 shadow-sm transform -rotate-12 translate-x-2 translate-y-2 z-0 flex items-center justify-center"><div className="w-full h-full bg-zinc-50/50"></div></div>
+               <div className="absolute w-20 h-28 bg-white border border-zinc-300 shadow-sm transform rotate-6 translate-x-[-5px] z-10 flex items-center justify-center">
+                  <div className="space-y-1 w-full p-2 opacity-30"><div className="h-1 bg-black w-full"></div><div className="h-1 bg-black w-2/3"></div></div>
+               </div>
+               <div className="absolute w-20 h-28 bg-white border border-zinc-300 shadow-md transform -rotate-3 z-20 flex items-center justify-center">
+                  <div className="space-y-1 w-full p-2 opacity-30"><div className="h-1 bg-black w-full"></div><div className="h-1 bg-black w-full"></div></div>
+               </div>
+               {/* 一番上の書類（赤枠） */}
+               <div className="absolute w-20 h-28 bg-red-50 border-2 border-red-400 shadow-lg transform rotate-2 z-30 flex flex-col items-center justify-center p-1">
+                  <div className="text-3xl mb-1 filter drop-shadow-md">😫</div>
+                  <div className="text-[9px] font-bold text-red-600 leading-tight text-center">手入力<br/>転記地獄</div>
+               </div>
+            </div>
+            <div className="mt-4 text-[10px] text-red-500 font-bold text-center">重い・ミス多発</div>
+          </div>
 
-                   <div className="pl-4">
-                     <h2 className="font-bold mb-1">第3条（従業員の処遇）</h2>
-                     <p className="text-zinc-400 italic">（AI生成中...）</p>
-                     <div className="h-2 w-full bg-zinc-100 rounded animate-pulse mt-1"></div>
-                     <div className="h-2 w-2/3 bg-zinc-100 rounded animate-pulse mt-1"></div>
-                   </div>
-                 </div>
-                 {/* AIカーソル */}
-                 <div className="absolute top-[60%] left-12 w-1 h-5 bg-blue-600 animate-blink"></div>
-                 <div className="absolute top-[58%] left-14 bg-blue-600 text-white text-[9px] px-1 rounded rounded-bl-none shadow-lg">AI Typing...</div>
-              </div>
-           </div>
+          {/* Center: Arrow & Badge */}
+          <div className="flex flex-col items-center justify-center z-40 -mt-4">
+            <div className="text-3xl text-zinc-300 animate-pulse">▶▶</div>
+            <div className="font-black text-xl text-white bg-gradient-to-r from-red-500 to-emerald-500 px-3 py-1 rounded-lg shadow-xl transform -rotate-6 border-2 border-white mt-1 whitespace-nowrap animate-[bounce_2s_infinite]">
+              -90%
+            </div>
+          </div>
+
+          {/* Right: After (Smart Crystal / AIカード) */}
+          <div className="flex flex-col items-center group relative w-1/3">
+            <div className="text-xs font-bold text-emerald-600 mb-2 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">After (5分)</div>
+            <div className="relative w-24 h-32 flex items-center justify-center mt-2">
+               {/* スマートなカード */}
+               <div className="w-20 h-28 bg-gradient-to-br from-emerald-400 to-blue-500 rounded-xl shadow-lg shadow-emerald-200/50 transform hover:scale-105 transition duration-500 flex flex-col items-center justify-center text-white border-t border-white/30 p-2 z-30 relative overflow-hidden group-hover:shadow-emerald-400/50">
+                  {/* 光の反射エフェクト */}
+                  <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/40 via-transparent to-transparent pointer-events-none"></div>
+                  <div className="text-4xl mb-2 filter drop-shadow-lg">✨</div>
+                  <div className="text-[10px] font-bold text-center leading-tight text-white/90">AI<br/>自動生成</div>
+               </div>
+               {/* キラキラ装飾 */}
+               <div className="absolute -top-3 -right-3 text-xl animate-[ping_1.5s_ease-in-out_infinite] opacity-70">✨</div>
+               <div className="absolute bottom-0 -left-4 text-sm animate-pulse text-yellow-400">✨</div>
+            </div>
+            <div className="mt-4 text-[10px] text-emerald-600 font-bold text-center">正確・一瞬</div>
+          </div>
+
         </div>
+        
+        {/* 背景装飾 */}
+        <div className="absolute inset-0 pointer-events-none opacity-5 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:16px_16px]"></div>
       </div>
     )
   },
@@ -898,9 +901,9 @@ export default function Home() {
 
                 <div className="mb-6">
                    <h4 className="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2">Mechanism</h4>
-                   <p className="text-sm text-zinc-600 leading-relaxed">
+                   <div className="text-sm text-zinc-600 leading-relaxed">
                      {selectedCase.detail}
-                   </p>
+                   </div>
                 </div>
 
                 <div className="bg-emerald-50 p-4 rounded-xl border border-emerald-100 mb-6">
@@ -958,10 +961,9 @@ export default function Home() {
             </div>
 
             {/* カレンダー本体 (Microsoft Bookings iframe) */}
-            {/* 変更点: overflow-y-auto を overflow-hidden に変更して外側のスクロールバーを消去 */}
             <div className="flex-grow bg-white relative w-full h-full overflow-hidden">
               
-              {/* スクロール誘導（一番下までスクロールが必要な場合のみ役立ちますが、邪魔にならないよう配置） */}
+              {/* スクロール誘導（控えめに表示） */}
               <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10 pointer-events-none opacity-80">
                  <div className="bg-emerald-600/90 text-white px-4 py-2 rounded-full shadow-lg flex items-center animate-bounce backdrop-blur-sm">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-4 h-4">
@@ -971,7 +973,6 @@ export default function Home() {
               </div>
 
               {/* iframe */}
-              {/* 変更点: min-h-[800px] を削除し、親要素の高さにフィットさせることで二重スクロールを防止 */}
               <iframe 
                 src="https://outlook.office365.com/owa/calendar/SmartCityAI1@smartcityai.co.jp/bookings/" 
                 className="w-full h-full border-none" 
@@ -990,6 +991,7 @@ export default function Home() {
           </div>
         </div>
       )}
+
     </main>
   );
 }
