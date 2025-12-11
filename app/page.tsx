@@ -931,7 +931,7 @@ export default function Home() {
       )}
 
       {/* --------------------------------------------------------- */}
-      {/* 予約カレンダーモダール（Microsoft Bookings埋め込み版・UX改善） */}
+      {/* 予約カレンダーモダール（スクロールバー1本化・デザイン修正版） */}
       {/* --------------------------------------------------------- */}
       {isCalendarOpen && (
         <div 
@@ -942,14 +942,14 @@ export default function Home() {
             className="bg-white md:rounded-lg shadow-2xl w-full max-w-5xl h-full md:h-[90vh] overflow-hidden font-sans flex flex-col relative"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* ヘッダー（案内文を追加） */}
+            {/* ヘッダー */}
             <div className="bg-emerald-600 text-white p-3 md:p-4 flex justify-between items-center flex-shrink-0 shadow-md z-20">
               <div className="flex flex-col">
                 <div className="font-bold text-lg flex items-center gap-2">
                   <span className="text-2xl">📅</span> 無料相談 予約カレンダー
                 </div>
                 <p className="text-[10px] md:text-xs text-emerald-100 mt-1">
-                  ※画面を下にスクロールして、ご希望の日時を選択してください
+                  ※ご希望の日時を選択してください
                 </p>
               </div>
               <button onClick={() => setIsCalendarOpen(false)} className="text-white hover:bg-emerald-700 rounded-full p-2 px-4 text-sm font-bold bg-emerald-500/50 transition border border-emerald-400">
@@ -958,23 +958,23 @@ export default function Home() {
             </div>
 
             {/* カレンダー本体 (Microsoft Bookings iframe) */}
-            <div className="flex-grow bg-white relative w-full h-full overflow-y-auto">
+            {/* 変更点: overflow-y-auto を overflow-hidden に変更して外側のスクロールバーを消去 */}
+            <div className="flex-grow bg-white relative w-full h-full overflow-hidden">
               
-              {/* ★★★ UX改善：スクロール誘導のフローティング表示 ★★★ */}
-              {/* 画面の下の方に「下にスクロール」という動くガイドを表示します */}
-              <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 pointer-events-none">
-                 <div className="bg-emerald-600/90 text-white px-6 py-3 rounded-full shadow-xl flex flex-col items-center animate-bounce backdrop-blur-sm border border-emerald-400">
-                    <span className="text-xs font-bold mb-1">日時を選択する</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-5 h-5">
+              {/* スクロール誘導（一番下までスクロールが必要な場合のみ役立ちますが、邪魔にならないよう配置） */}
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10 pointer-events-none opacity-80">
+                 <div className="bg-emerald-600/90 text-white px-4 py-2 rounded-full shadow-lg flex items-center animate-bounce backdrop-blur-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-4 h-4">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                     </svg>
                  </div>
               </div>
 
-              {/* iframe（あなたの予約ページ） */}
+              {/* iframe */}
+              {/* 変更点: min-h-[800px] を削除し、親要素の高さにフィットさせることで二重スクロールを防止 */}
               <iframe 
                 src="https://outlook.office365.com/owa/calendar/SmartCityAI1@smartcityai.co.jp/bookings/" 
-                className="w-full h-full border-none min-h-[800px]" 
+                className="w-full h-full border-none" 
                 title="無料相談予約"
                 loading="lazy"
               ></iframe>
@@ -990,7 +990,6 @@ export default function Home() {
           </div>
         </div>
       )}
-
     </main>
   );
 }
