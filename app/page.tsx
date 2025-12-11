@@ -929,44 +929,63 @@ export default function Home() {
         </div>
       )}
 
-      {/* --------------------------------------------------------- */}
-      {/* 予約カレンダーモダール（Microsoft Bookings埋め込み版） */}
+     {/* --------------------------------------------------------- */}
+      {/* 予約カレンダーモダール（Microsoft Bookings埋め込み版・UX改善） */}
       {/* --------------------------------------------------------- */}
       {isCalendarOpen && (
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-in fade-in duration-200"
+          className="fixed inset-0 z-50 flex items-center justify-center p-0 md:p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200"
           onClick={() => setIsCalendarOpen(false)}
         >
           <div 
-            className="bg-white rounded-lg shadow-2xl w-full max-w-5xl h-[85vh] overflow-hidden font-sans flex flex-col"
+            className="bg-white md:rounded-lg shadow-2xl w-full max-w-5xl h-full md:h-[90vh] overflow-hidden font-sans flex flex-col relative"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* ヘッダー */}
-            <div className="bg-emerald-600 text-white p-4 flex justify-between items-center flex-shrink-0">
-              <div className="font-bold text-lg flex items-center gap-2">
-                <span className="text-2xl">📅</span> 無料相談 予約カレンダー
+            {/* ヘッダー（案内文を追加） */}
+            <div className="bg-emerald-600 text-white p-3 md:p-4 flex justify-between items-center flex-shrink-0 shadow-md z-20">
+              <div className="flex flex-col">
+                <div className="font-bold text-lg flex items-center gap-2">
+                  <span className="text-2xl">📅</span> 無料相談 予約カレンダー
+                </div>
+                <p className="text-[10px] md:text-xs text-emerald-100 mt-1">
+                  ※画面を下にスクロールして、ご希望の日時を選択してください
+                </p>
               </div>
-              <button onClick={() => setIsCalendarOpen(false)} className="text-white hover:bg-emerald-700 rounded-full p-1 px-3 text-sm font-bold bg-emerald-500/50 transition">✕ 閉じる</button>
+              <button onClick={() => setIsCalendarOpen(false)} className="text-white hover:bg-emerald-700 rounded-full p-2 px-4 text-sm font-bold bg-emerald-500/50 transition border border-emerald-400">
+                ✕ 閉じる
+              </button>
             </div>
 
             {/* カレンダー本体 (Microsoft Bookings iframe) */}
-            <div className="flex-grow bg-white relative">
+            <div className="flex-grow bg-white relative w-full h-full overflow-y-auto">
+              
+              {/* ★★★ UX改善：スクロール誘導のフローティング表示 ★★★ */}
+              {/* 画面の下の方に「下にスクロール」という動くガイドを表示します */}
+              <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 pointer-events-none">
+                 <div className="bg-emerald-600/90 text-white px-6 py-3 rounded-full shadow-xl flex flex-col items-center animate-bounce backdrop-blur-sm border border-emerald-400">
+                    <span className="text-xs font-bold mb-1">日時を選択する</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-5 h-5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    </svg>
+                 </div>
+              </div>
+
+              {/* iframe（あなたの予約ページ） */}
               <iframe 
                 src="https://outlook.office365.com/owa/calendar/SmartCityAI1@smartcityai.co.jp/bookings/" 
-                className="w-full h-full border-none"
+                className="w-full h-full border-none min-h-[800px]" 
                 title="無料相談予約"
                 loading="lazy"
               ></iframe>
               
               {/* 読み込み中の表示 */}
-              <div className="absolute inset-0 flex items-center justify-center -z-10 text-zinc-400">
-                <span className="animate-pulse">カレンダーを読み込んでいます...</span>
+              <div className="absolute inset-0 flex items-center justify-center -z-10 text-zinc-400 bg-zinc-50">
+                <div className="text-center">
+                   <div className="text-4xl animate-spin mb-4 mx-auto w-fit">↻</div>
+                   <p>カレンダーを読み込んでいます...</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       )}
-
-    </main>
-  );
-}
