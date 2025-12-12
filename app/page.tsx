@@ -653,7 +653,7 @@ export default function Home() {
 
 
         {/* --------------------------------------------------------- */}
-        {/* 3. プロセス：導入の流れ */}
+        {/* 3. プロセス：導入の流れ（矢印修正版） */}
         {/* --------------------------------------------------------- */}
         <section className="mb-24 bg-blue-50/50 -mx-6 px-6 py-16">
           <div className="max-w-5xl mx-auto">
@@ -682,16 +682,16 @@ export default function Home() {
                   {/* 矢印（最後のカード以外に追加） */}
                   {i < 3 && (
                     <>
-                      {/* ▼ PC用: 右矢印（太いSVGアイコンを使用） */}
-                      <div className="hidden md:flex absolute top-1/2 -right-10 transform -translate-y-1/2 z-0 justify-center items-center w-12 h-12 text-blue-600">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={4} stroke="currentColor" className="w-8 h-8">
+                      {/* ▼ PC用: 右矢印（太く、薄い青に修正） */}
+                      <div className="hidden md:flex absolute top-1/2 -right-10 transform -translate-y-1/2 z-0 justify-center items-center w-12 h-12 text-blue-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={4} stroke="currentColor" className="w-10 h-10">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                         </svg>
                       </div>
 
-                      {/* ▼ スマホ用: 下矢印（太いSVGアイコンを使用） */}
-                      <div className="flex md:hidden absolute -bottom-14 left-1/2 transform -translate-x-1/2 z-0 justify-center items-center w-12 h-12 text-blue-600">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={4} stroke="currentColor" className="w-8 h-8">
+                      {/* ▼ スマホ用: 下矢印（太く、薄い青に修正） */}
+                      <div className="flex md:hidden absolute -bottom-14 left-1/2 transform -translate-x-1/2 z-0 justify-center items-center w-12 h-12 text-blue-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={4} stroke="currentColor" className="w-10 h-10">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
                         </svg>
                       </div>
@@ -794,8 +794,7 @@ export default function Home() {
               <p className="leading-relaxed mb-6 text-sm md:text-base">
                 AIは人手不足に悩む企業にこそ、その恩恵が必要です。<br/><br/>
                 私たちは、最新の技術を「誰にでも使える形」にして提供し、御社の頼れるデジタルパートナーとして伴走します。まずは小さく、未来への一歩を踏み出しましょう。
-              </p>
-            </div>
+              </div>
             <div className="w-24 h-24 md:w-32 md:h-32 bg-zinc-800 rounded-full flex items-center justify-center border-2 border-zinc-700">
                <span className="text-4xl">🤝</span>
             </div>
