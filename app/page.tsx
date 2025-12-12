@@ -794,7 +794,8 @@ export default function Home() {
               <p className="leading-relaxed mb-6 text-sm md:text-base">
                 AIは人手不足に悩む企業にこそ、その恩恵が必要です。<br/><br/>
                 私たちは、最新の技術を「誰にでも使える形」にして提供し、御社の頼れるデジタルパートナーとして伴走します。まずは小さく、未来への一歩を踏み出しましょう。
-              </div>
+              </p>
+            </div>
             <div className="w-24 h-24 md:w-32 md:h-32 bg-zinc-800 rounded-full flex items-center justify-center border-2 border-zinc-700">
                <span className="text-4xl">🤝</span>
             </div>
