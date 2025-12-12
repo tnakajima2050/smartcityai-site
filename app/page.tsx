@@ -683,16 +683,16 @@ export default function Home() {
                   {i < 3 && (
                     <>
                       {/* ▼ PC用: 右矢印（太く、薄い青に修正） */}
-                      <div className="hidden md:flex absolute top-1/2 -right-10 transform -translate-y-1/2 z-0 justify-center items-center w-12 h-12 text-blue-400">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={4} stroke="currentColor" className="w-10 h-10">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                      <div className="hidden md:flex absolute top-1/2 -right-10 transform -translate-y-1/2 z-0 justify-center items-center w-14 h-14 text-blue-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-14 h-14">
+                          <path d="M3 9h11V4l8 8-8 8v-5H3V9z" />
                         </svg>
                       </div>
 
                       {/* ▼ スマホ用: 下矢印（太く、薄い青に修正） */}
-                      <div className="flex md:hidden absolute -bottom-14 left-1/2 transform -translate-x-1/2 z-0 justify-center items-center w-12 h-12 text-blue-400">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={4} stroke="currentColor" className="w-10 h-10">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
+                      <div className="flex md:hidden absolute -bottom-14 left-1/2 transform -translate-x-1/2 z-0 justify-center items-center w-14 h-14 text-blue-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-14 h-14">
+                          <path d="M9 3v11H4l8 8 8-8h-5V3H9z" />
                         </svg>
                       </div>
                     </>
