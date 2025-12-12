@@ -829,12 +829,18 @@ export default function Home() {
               <h3 className="text-sm font-bold uppercase tracking-wider text-zinc-900 mb-3">
                 Contact
               </h3>
-              <p className="text-sm mb-2">
-                <span className="font-bold">Email:</span><br/>
-                <a href="mailto:tetsuya.nakajima@smartcityai.co.jp" className="text-blue-600 hover:underline">
-                  tetsuya.nakajima@smartcityai.co.jp
-                </a>
-              </p>
+              <div className="text-sm mb-2">
+                <p className="mb-3">
+                  <span className="text-xs font-bold text-zinc-500">代表社員</span><br/>
+                  <span className="font-medium text-zinc-900">中島 徹也</span>
+                </p>
+                <p>
+                  <span className="font-bold text-xs text-zinc-500">Email:</span><br/>
+                  <a href="mailto:tetsuya.nakajima@smartcityai.co.jp" className="text-blue-600 hover:underline break-all">
+                    tetsuya.nakajima@smartcityai.co.jp
+                  </a>
+                </p>
+              </div>
             </div>
           </div>
           <div className="border-t border-zinc-200 pt-6 text-center text-xs text-zinc-500">
