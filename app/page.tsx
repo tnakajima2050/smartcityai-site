@@ -361,9 +361,9 @@ const useCases = [
         <div className="w-1/3 flex flex-col relative">
            <div className="text-center font-bold text-slate-500 text-xs mb-2 uppercase tracking-widest">Input: Raw Receipts</div>
            <div className="flex-grow relative flex items-center justify-center">
-              {/* CSSでレシートの山を表現 */}
-              {[1,2,3,4,5].map((i) => (
-                <div key={i} className="absolute w-32 h-40 bg-white border border-slate-300 shadow-md p-2 flex flex-col items-center" 
+             {/* CSSでレシートの山を表現 */}
+             {[1,2,3,4,5].map((i) => (
+               <div key={i} className="absolute w-32 h-40 bg-white border border-slate-300 shadow-md p-2 flex flex-col items-center" 
                      style={{
                        transform: `rotate(${Math.random() * 20 - 10}deg) translate(${Math.random() * 20 - 10}px, ${Math.random() * 20 - 10}px)`,
                        zIndex: i
@@ -375,9 +375,9 @@ const useCases = [
                    <div className="w-full h-px bg-slate-200 mb-1"></div>
                    <div className="mt-auto text-[8px] font-mono font-bold">¥{Math.floor(Math.random()*5000 + 100)}</div>
                 </div>
-              ))}
-              {/* スキャナー光 */}
-              <div className="absolute top-1/2 left-0 w-full h-1 bg-blue-500 shadow-[0_0_15px_#3b82f6] z-10 animate-[scan_1.5s_linear_infinite]"></div>
+             ))}
+             {/* スキャナー光 */}
+             <div className="absolute top-1/2 left-0 w-full h-1 bg-blue-500 shadow-[0_0_15px_#3b82f6] z-10 animate-[scan_1.5s_linear_infinite]"></div>
            </div>
            <div className="bg-slate-200 text-center py-2 rounded mt-2">
              <div className="text-[10px] text-slate-500">Processing</div>
@@ -465,15 +465,15 @@ const useCases = [
         {/* 中央：メインチャット (40%) */}
         <div className="w-2/5 flex flex-col bg-white border-r border-slate-200">
            <div className="flex-grow p-4 overflow-y-auto space-y-4">
-              {/* ユーザーの質問 */}
-              <div className="flex gap-2 flex-row-reverse">
-                <div className="bg-slate-100 p-3 rounded-2xl rounded-tr-none text-xs text-slate-800 max-w-[90%]">
-                   就業規則の交通費について教えて。上限はある？
-                </div>
-              </div>
+             {/* ユーザーの質問 */}
+             <div className="flex gap-2 flex-row-reverse">
+               <div className="bg-slate-100 p-3 rounded-2xl rounded-tr-none text-xs text-slate-800 max-w-[90%]">
+                  就業規則の交通費について教えて。上限はある？
+               </div>
+             </div>
 
-              {/* AI回答 */}
-              <div className="flex gap-2">
+             {/* AI回答 */}
+             <div className="flex gap-2">
                  <div className="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center text-white text-[10px] flex-shrink-0">AI</div>
                  <div className="space-y-2 max-w-[90%]">
                     <div className="p-3 rounded-2xl rounded-tl-none border border-blue-100 bg-blue-50/50 text-xs text-slate-800 leading-relaxed">
@@ -483,29 +483,29 @@ const useCases = [
                     {/* 参照元リンク */}
                     <div className="flex gap-1 flex-wrap">
                        <span className="px-2 py-1 bg-white border border-slate-200 rounded text-[10px] text-blue-600 flex items-center gap-1 cursor-pointer hover:bg-blue-50 transition shadow-sm">
-                          📄 就業規則.pdf (p.12)
+                         📄 就業規則.pdf (p.12)
                        </span>
                        <span className="px-2 py-1 bg-white border border-slate-200 rounded text-[10px] text-blue-600 flex items-center gap-1 cursor-pointer hover:bg-blue-50 transition shadow-sm">
-                          📄 交通費申請マニュアル.pdf
+                         📄 交通費申請マニュアル.pdf
                        </span>
                     </div>
                  </div>
-              </div>
+             </div>
            </div>
            {/* 入力エリア */}
            <div className="p-3 border-t border-slate-200">
-              <div className="relative">
+             <div className="relative">
                  <input type="text" className="w-full border border-slate-300 rounded-full pl-4 pr-10 py-2 text-xs focus:outline-none focus:border-blue-500" placeholder="質問を入力..." />
                  <button className="absolute right-1 top-1 w-7 h-7 bg-blue-600 rounded-full text-white flex items-center justify-center hover:bg-blue-700">↑</button>
-              </div>
+             </div>
            </div>
         </div>
 
         {/* 右カラム：参照元プレビュー (30%) */}
         <div className="w-1/3 bg-slate-100 flex flex-col">
            <div className="p-2 border-b border-slate-200 flex justify-between items-center text-xs text-slate-500">
-              <span>Source Preview</span>
-              <span>⬇</span>
+             <span>Source Preview</span>
+             <span>⬇</span>
            </div>
            <div className="flex-grow p-4 overflow-hidden flex flex-col items-center justify-center">
               <div className="bg-white shadow-lg border border-slate-200 w-full h-full p-6 text-[8px] text-slate-400 overflow-hidden relative">
@@ -864,10 +864,12 @@ export default function Home() {
           >
             {/* 左側：ビジュアルエリア（70%） - プロ仕様ダッシュボード */}
             <div className="w-full md:w-[70%] bg-zinc-900 p-2 md:p-4 border-b md:border-b-0 md:border-r border-zinc-800 flex flex-col relative">
-               {/* 閉じるボタン (スマホ用) */}
+               
+               {/* 閉じるボタン (スマホ用・視認性強化版) */}
                <button 
                   onClick={() => setSelectedCase(null)}
-                  className="md:hidden absolute top-4 right-4 z-50 bg-white/20 text-white rounded-full p-2"
+                  className="md:hidden absolute top-4 right-4 z-50 bg-white text-zinc-900 shadow-xl rounded-full w-12 h-12 flex items-center justify-center font-bold text-2xl border border-zinc-200"
+                  aria-label="閉じる"
                >
                   ✕
                </button>
@@ -936,7 +938,7 @@ export default function Home() {
       )}
 
       {/* --------------------------------------------------------- */}
-      {/* 予約カレンダーモダール（スクロールバー1本化・デザイン修正版） */}
+      {/* 予約カレンダーモダール */}
       {/* --------------------------------------------------------- */}
       {isCalendarOpen && (
         <div 
