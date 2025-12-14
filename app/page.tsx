@@ -15,21 +15,18 @@ const useCases = [
     title: "１．定型文書の自動化",
     target: "士業・事務",
     desc: "作成時間を90%以上削減。1時間かかっていた『手入力・転記』業務が、わずか5分で完結します。",
-    detail: (
+    // ▼ Mechanismの説明
+    detail: "MITの研究で実証された生成AI技術を活用。「ゼロから考える時間」をなくし、入力と転記に特化させることで、作成業務を自動化します。",
+    // ▼ Benefit（数値と出典番号を追記）
+    benefit: (
       <>
-        <p className="mb-4">
-          MIT（マサチューセッツ工科大学）の研究<span className="text-blue-600 font-bold">※1</span> で、生成AIは文書作成の時間を40%短縮し、品質も向上させることが実証されています。
-        </p>
-        <p className="mb-6">
-          さらに本システムでは、「ゼロから考える時間」を完全になくし「入力と転記」に特化させることで、<span className="font-bold text-emerald-600">最大90%の工数削減</span><span className="text-blue-600 font-bold">※2</span> を実現します。
-        </p>
-        <div className="text-[10px] text-zinc-500 bg-zinc-100 p-3 rounded border border-zinc-200 space-y-2 leading-relaxed">
-          <p><span className="text-blue-600 font-bold">※1 [出典]</span> Noy, S., & Zhang, W. (2023). Experimental evidence on the productivity effects of generative artificial intelligence. Science.</p>
-          <p><span className="text-blue-600 font-bold">※2 [当社試算]</span> 従来60分（リサーチ15分＋手入力30分＋整合性確認15分）かかっていた業務を、AIにより5分（条件指定3分＋人による最終確認2分）に短縮した場合。</p>
-        </div>
+        生成AIにより文書作成時間を<span className="font-bold border-b border-emerald-500/50">40%短縮</span><span className="text-[10px] align-top font-bold text-emerald-700">(※1)</span>し、本システムの活用で最大<span className="font-bold border-b border-emerald-500/50">90%の工数削減</span><span className="text-[10px] align-top font-bold text-emerald-700">(※2)</span>を実現します。
+        <span className="block mt-3 pt-2 border-t border-emerald-200/50 text-[10px] text-emerald-800/70 font-normal leading-snug">
+          ※1 Noy, S., & Zhang, W. (2023). Experimental evidence on the productivity effects of generative artificial intelligence. Science.<br/>
+          ※2 [当社試算] 従来60分（リサーチ15分＋手入力30分＋整合性確認15分）の業務を、AIにより5分（条件指定3分＋確認2分）に短縮した場合。
+        </span>
       </>
     ),
-    benefit: "単純な作成業務を自動化し、人件費を大幅に圧縮。浮いた時間で、営業や顧客対応など「利益を生む業務」に集中できます。",
     visual: (
       <div className="h-full bg-slate-50 flex flex-col rounded-lg border border-zinc-200 p-4 font-sans relative overflow-hidden">
         <div className="text-center font-bold text-zinc-800 mb-6 md:mb-12 z-10 relative md:text-xl">劇的ビフォーアフター</div>
