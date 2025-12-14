@@ -6,7 +6,7 @@ import Image from 'next/image';
 // ------------------------------------------------------------------
 // ▼ データ定義：6つの活用事例
 //   Case 1: 「書類の山 vs 結晶」の劇的ビフォーアフター図解
-//   Case 2: Unsplash実写画像を使用したリアルなAI解析デモ
+//   Case 2: Unsplash実写画像を使用したリアルなAI解析デモ（RFID/数字根拠付き）
 // ------------------------------------------------------------------
 const useCases = [
   {
@@ -32,16 +32,16 @@ const useCases = [
     benefit: "単純な作成業務を自動化し、人件費を大幅に圧縮。浮いた時間で、営業や顧客対応など「利益を生む業務」に集中できます。",
     visual: (
       <div className="h-full bg-slate-50 flex flex-col rounded-lg border border-zinc-200 p-4 font-sans relative overflow-hidden">
-        <div className="text-center font-bold text-zinc-800 mb-6 md:mb-10 z-10 relative md:text-xl">劇的ビフォーアフター</div>
+        <div className="text-center font-bold text-zinc-800 mb-6 md:mb-12 z-10 relative md:text-xl">劇的ビフォーアフター</div>
         
         <div className="flex-grow flex items-center justify-around relative z-10 px-2 pb-4">
           
           {/* Left: Before (Chaos / 書類の山) */}
           <div className="flex flex-col items-center group relative w-1/3">
             <div className="text-xs md:text-base font-bold text-red-500 mb-2 bg-red-50 px-2 py-0.5 rounded-full border border-red-100">Before (60分)</div>
-            {/* ↓ PC用にコンテナサイズを拡大 (md:w-48 md:h-64) */}
+            {/* ↓ PC用にコンテナサイズを拡大 */}
             <div className="relative w-24 h-32 md:w-48 md:h-64 flex items-center justify-center mt-2">
-               {/* 乱雑に積み重なる書類 (CSSで表現) - PC用にサイズ拡大 (md:w-40 md:h-56) */}
+               {/* 乱雑に積み重なる書類 */}
                <div className="absolute w-20 h-28 md:w-40 md:h-56 bg-white border border-zinc-300 shadow-sm transform -rotate-12 translate-x-2 translate-y-2 z-0 flex items-center justify-center"><div className="w-full h-full bg-zinc-50/50"></div></div>
                <div className="absolute w-20 h-28 md:w-40 md:h-56 bg-white border border-zinc-300 shadow-sm transform rotate-6 translate-x-[-5px] z-10 flex items-center justify-center">
                   <div className="space-y-1 w-full p-2 opacity-30"><div className="h-1 bg-black w-full"></div><div className="h-1 bg-black w-2/3"></div></div>
@@ -69,11 +69,9 @@ const useCases = [
           {/* Right: After (Smart Crystal / AIカード) */}
           <div className="flex flex-col items-center group relative w-1/3">
             <div className="text-xs md:text-base font-bold text-emerald-600 mb-2 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">After (5分)</div>
-            {/* ↓ PC用にコンテナサイズを拡大 */}
             <div className="relative w-24 h-32 md:w-48 md:h-64 flex items-center justify-center mt-2">
-               {/* スマートなカード - PC用にサイズ拡大 */}
+               {/* スマートなカード */}
                <div className="w-20 h-28 md:w-40 md:h-56 bg-gradient-to-br from-emerald-400 to-blue-500 rounded-xl shadow-lg shadow-emerald-200/50 transform hover:scale-105 transition duration-500 flex flex-col items-center justify-center text-white border-t border-white/30 p-2 z-30 relative overflow-hidden group-hover:shadow-emerald-400/50">
-                  {/* 光の反射エフェクト */}
                   <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/40 via-transparent to-transparent pointer-events-none"></div>
                   <div className="text-4xl md:text-7xl mb-2 md:mb-4 filter drop-shadow-lg">✨</div>
                   <div className="text-[10px] md:text-sm font-bold text-center leading-tight text-white/90">AI<br/>自動生成</div>
@@ -97,9 +95,19 @@ const useCases = [
     icon: "📦",
     title: "２．在庫・物流の自動チェック",
     target: "物流・製造・小売",
-    desc: "カメラ映像解析で在庫数や検品作業を自動化。",
-    detail: "倉庫内のカメラ映像をAIが解析。バーコードを読み取る手間なく、製品の数をカウントしたり、異常を検知します。",
-    benefit: "人による数え間違い（ヒューマンエラー）を防止し、検品コストの削減が期待できます。",
+    desc: "カメラ映像やRFID解析で在庫管理を自動化。ヒューマンエラーを劇的に削減します。",
+    // ▼ ここを修正：Mechanismの説明
+    detail: "倉庫内のカメラ映像やRFID（ICタグ）をAIが解析。バーコードを読み取る手間なく、製品の数をカウントしたり、異常を検知します。",
+    // ▼ ここを修正：Benefit（数値と出典）
+    benefit: (
+      <>
+        人による数え間違い（ヒューマンエラー）を<span className="font-bold border-b border-emerald-500/50">37%から5%</span>に減らし、欠品防止により<span className="font-bold border-b border-emerald-500/50">1.5%〜5.5%</span>の売上向上が期待できます。
+        <span className="block mt-3 pt-2 border-t border-emerald-200/50 text-[10px] text-emerald-800/70 font-normal leading-snug">
+          ※1 Auburn University RFID Lab / GS1 US &quot;Project Zipper&quot;<br/>
+          ※2 ECR Retail Loss Group &quot;Measuring the Impact of RFID in Retailing&quot;
+        </span>
+      </>
+    ),
     visual: (
       <div className="h-full bg-black rounded-lg overflow-hidden relative group">
         {/* 背景画像（倉庫）: Unsplashを使用 */}
