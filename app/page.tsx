@@ -645,7 +645,7 @@ export default function Home() {
               <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center text-2xl mb-4">💰</div>
               <h3 className="font-bold text-lg text-blue-900 mb-2">コスト効率の良いIT導入</h3>
               <p className="text-sm text-zinc-600 leading-relaxed">
-                公的支援制度（補助金など）の適用可能性を診断し、申請を支援します。最新技術を、中小企業様でも導入しやすい現実的な価格で提供します。
+                公的支援制度（補助金など）の適用可能性を診断し、申請を支援します。最新技術を、導入しやすい現実的な価格で提供します。
               </p>
             </div>
           </div>
