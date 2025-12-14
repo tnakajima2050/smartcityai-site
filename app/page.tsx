@@ -32,55 +32,57 @@ const useCases = [
     benefit: "単純な作成業務を自動化し、人件費を大幅に圧縮。浮いた時間で、営業や顧客対応など「利益を生む業務」に集中できます。",
     visual: (
       <div className="h-full bg-slate-50 flex flex-col rounded-lg border border-zinc-200 p-4 font-sans relative overflow-hidden">
-        <div className="text-center font-bold text-zinc-800 mb-6 z-10 relative">劇的ビフォーアフター</div>
+        <div className="text-center font-bold text-zinc-800 mb-6 md:mb-10 z-10 relative md:text-xl">劇的ビフォーアフター</div>
         
         <div className="flex-grow flex items-center justify-around relative z-10 px-2 pb-4">
           
           {/* Left: Before (Chaos / 書類の山) */}
           <div className="flex flex-col items-center group relative w-1/3">
-            <div className="text-xs font-bold text-red-500 mb-2 bg-red-50 px-2 py-0.5 rounded-full border border-red-100">Before (60分)</div>
-            <div className="relative w-24 h-32 flex items-center justify-center mt-2">
-               {/* 乱雑に積み重なる書類 (CSSで表現) */}
-               <div className="absolute w-20 h-28 bg-white border border-zinc-300 shadow-sm transform -rotate-12 translate-x-2 translate-y-2 z-0 flex items-center justify-center"><div className="w-full h-full bg-zinc-50/50"></div></div>
-               <div className="absolute w-20 h-28 bg-white border border-zinc-300 shadow-sm transform rotate-6 translate-x-[-5px] z-10 flex items-center justify-center">
+            <div className="text-xs md:text-base font-bold text-red-500 mb-2 bg-red-50 px-2 py-0.5 rounded-full border border-red-100">Before (60分)</div>
+            {/* ↓ PC用にコンテナサイズを拡大 (md:w-48 md:h-64) */}
+            <div className="relative w-24 h-32 md:w-48 md:h-64 flex items-center justify-center mt-2">
+               {/* 乱雑に積み重なる書類 (CSSで表現) - PC用にサイズ拡大 (md:w-40 md:h-56) */}
+               <div className="absolute w-20 h-28 md:w-40 md:h-56 bg-white border border-zinc-300 shadow-sm transform -rotate-12 translate-x-2 translate-y-2 z-0 flex items-center justify-center"><div className="w-full h-full bg-zinc-50/50"></div></div>
+               <div className="absolute w-20 h-28 md:w-40 md:h-56 bg-white border border-zinc-300 shadow-sm transform rotate-6 translate-x-[-5px] z-10 flex items-center justify-center">
                   <div className="space-y-1 w-full p-2 opacity-30"><div className="h-1 bg-black w-full"></div><div className="h-1 bg-black w-2/3"></div></div>
                </div>
-               <div className="absolute w-20 h-28 bg-white border border-zinc-300 shadow-md transform -rotate-3 z-20 flex items-center justify-center">
+               <div className="absolute w-20 h-28 md:w-40 md:h-56 bg-white border border-zinc-300 shadow-md transform -rotate-3 z-20 flex items-center justify-center">
                   <div className="space-y-1 w-full p-2 opacity-30"><div className="h-1 bg-black w-full"></div><div className="h-1 bg-black w-full"></div></div>
                </div>
                {/* 一番上の書類（赤枠） */}
-               <div className="absolute w-20 h-28 bg-red-50 border-2 border-red-400 shadow-lg transform rotate-2 z-30 flex flex-col items-center justify-center p-1">
-                  <div className="text-3xl mb-1 filter drop-shadow-md">😫</div>
-                  <div className="text-[9px] font-bold text-red-600 leading-tight text-center">手入力<br/>転記地獄</div>
+               <div className="absolute w-20 h-28 md:w-40 md:h-56 bg-red-50 border-2 border-red-400 shadow-lg transform rotate-2 z-30 flex flex-col items-center justify-center p-1">
+                  <div className="text-3xl md:text-6xl mb-1 md:mb-4 filter drop-shadow-md">😫</div>
+                  <div className="text-[9px] md:text-sm font-bold text-red-600 leading-tight text-center">手入力<br/>転記地獄</div>
                </div>
             </div>
-            <div className="mt-4 text-[10px] text-red-500 font-bold text-center">重い・ミス多発</div>
+            <div className="mt-4 text-[10px] md:text-sm text-red-500 font-bold text-center">重い・ミス多発</div>
           </div>
 
           {/* Center: Arrow & Badge */}
           <div className="flex flex-col items-center justify-center z-40 -mt-4">
-            <div className="text-3xl text-zinc-300 animate-pulse">▶▶</div>
-            <div className="font-black text-xl text-white bg-gradient-to-r from-red-500 to-emerald-500 px-3 py-1 rounded-lg shadow-xl transform -rotate-6 border-2 border-white mt-1 whitespace-nowrap animate-[bounce_2s_infinite]">
+            <div className="text-3xl md:text-6xl text-zinc-300 animate-pulse">▶▶</div>
+            <div className="font-black text-xl md:text-4xl text-white bg-gradient-to-r from-red-500 to-emerald-500 px-3 py-1 md:px-5 md:py-2 rounded-lg shadow-xl transform -rotate-6 border-2 border-white mt-1 whitespace-nowrap animate-[bounce_2s_infinite]">
               -90%
             </div>
           </div>
 
           {/* Right: After (Smart Crystal / AIカード) */}
           <div className="flex flex-col items-center group relative w-1/3">
-            <div className="text-xs font-bold text-emerald-600 mb-2 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">After (5分)</div>
-            <div className="relative w-24 h-32 flex items-center justify-center mt-2">
-               {/* スマートなカード */}
-               <div className="w-20 h-28 bg-gradient-to-br from-emerald-400 to-blue-500 rounded-xl shadow-lg shadow-emerald-200/50 transform hover:scale-105 transition duration-500 flex flex-col items-center justify-center text-white border-t border-white/30 p-2 z-30 relative overflow-hidden group-hover:shadow-emerald-400/50">
+            <div className="text-xs md:text-base font-bold text-emerald-600 mb-2 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">After (5分)</div>
+            {/* ↓ PC用にコンテナサイズを拡大 */}
+            <div className="relative w-24 h-32 md:w-48 md:h-64 flex items-center justify-center mt-2">
+               {/* スマートなカード - PC用にサイズ拡大 */}
+               <div className="w-20 h-28 md:w-40 md:h-56 bg-gradient-to-br from-emerald-400 to-blue-500 rounded-xl shadow-lg shadow-emerald-200/50 transform hover:scale-105 transition duration-500 flex flex-col items-center justify-center text-white border-t border-white/30 p-2 z-30 relative overflow-hidden group-hover:shadow-emerald-400/50">
                   {/* 光の反射エフェクト */}
                   <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/40 via-transparent to-transparent pointer-events-none"></div>
-                  <div className="text-4xl mb-2 filter drop-shadow-lg">✨</div>
-                  <div className="text-[10px] font-bold text-center leading-tight text-white/90">AI<br/>自動生成</div>
+                  <div className="text-4xl md:text-7xl mb-2 md:mb-4 filter drop-shadow-lg">✨</div>
+                  <div className="text-[10px] md:text-sm font-bold text-center leading-tight text-white/90">AI<br/>自動生成</div>
                </div>
                {/* キラキラ装飾 */}
-               <div className="absolute -top-3 -right-3 text-xl animate-[ping_1.5s_ease-in-out_infinite] opacity-70">✨</div>
-               <div className="absolute bottom-0 -left-4 text-sm animate-pulse text-yellow-400">✨</div>
+               <div className="absolute -top-3 -right-3 text-xl md:text-3xl animate-[ping_1.5s_ease-in-out_infinite] opacity-70">✨</div>
+               <div className="absolute bottom-0 -left-4 text-sm md:text-xl animate-pulse text-yellow-400">✨</div>
             </div>
-            <div className="mt-4 text-[10px] text-emerald-600 font-bold text-center">正確・一瞬</div>
+            <div className="mt-4 text-[10px] md:text-sm text-emerald-600 font-bold text-center">正確・一瞬</div>
           </div>
 
         </div>
