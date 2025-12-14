@@ -96,12 +96,12 @@ const useCases = [
     title: "２．在庫・物流の自動チェック",
     target: "物流・製造・小売",
     desc: "カメラ映像やRFID解析で在庫管理を自動化。ヒューマンエラーを劇的に削減します。",
-    // ▼ ここを修正：Mechanismの説明
+    // ▼ Mechanismの説明
     detail: "倉庫内のカメラ映像やRFID（ICタグ）をAIが解析。バーコードを読み取る手間なく、製品の数をカウントしたり、異常を検知します。",
-    // ▼ ここを修正：Benefit（数値と出典）
+    // ▼ Benefit（数値と出典番号を追記）
     benefit: (
       <>
-        人による数え間違い（ヒューマンエラー）を<span className="font-bold border-b border-emerald-500/50">37%から5%</span>に減らし、欠品防止により<span className="font-bold border-b border-emerald-500/50">1.5%〜5.5%</span>の売上向上が期待できます。
+        人による数え間違い（ヒューマンエラー）を<span className="font-bold border-b border-emerald-500/50">37%から5%</span><span className="text-[10px] align-top font-bold text-emerald-700">(※1)</span>に減らし、欠品防止により<span className="font-bold border-b border-emerald-500/50">1.5%〜5.5%</span><span className="text-[10px] align-top font-bold text-emerald-700">(※2)</span>の売上向上が期待できます。
         <span className="block mt-3 pt-2 border-t border-emerald-200/50 text-[10px] text-emerald-800/70 font-normal leading-snug">
           ※1 Auburn University RFID Lab / GS1 US &quot;Project Zipper&quot;<br/>
           ※2 ECR Retail Loss Group &quot;Measuring the Impact of RFID in Retailing&quot;
