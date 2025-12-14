@@ -628,14 +628,14 @@ export default function Home() {
           <div className="grid gap-8 md:grid-cols-3">
             <div className="bg-white p-6 rounded-xl border border-blue-100 shadow-sm hover:shadow-md transition">
               <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center text-2xl mb-4">🎯</div>
-              <h3 className="font-bold text-lg text-blue-900 mb-2">御社専用のオーダーメイド</h3>
+              <h3 className="font-bold text-lg text-blue-900 mb-2">１.御社専用のオーダーメイド</h3>
               <p className="text-sm text-zinc-600 leading-relaxed">
                 御社の業務フローを徹底的にヒアリングし、本当に必要な機能だけを設計・開発します。
               </p>
             </div>
             <div className="bg-white p-6 rounded-xl border border-blue-100 shadow-sm hover:shadow-md transition">
               <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center text-2xl mb-4">✨</div>
-              <h3 className="font-bold text-lg text-blue-900 mb-2">リスク最小限のPoC開発</h3>
+              <h3 className="font-bold text-lg text-blue-900 mb-2">２.リスク最小限のPoC開発</h3>
               <p className="text-sm text-zinc-600 leading-relaxed">
                 いきなり数百万円は使いません。まずは最小限のコストで試作版（PoC）を作り、効果を確認してから本格導入へ進みます。
               </p>
@@ -643,7 +643,7 @@ export default function Home() {
             {/* 補助金テキスト修正版 */}
             <div className="bg-white p-6 rounded-xl border border-blue-100 shadow-sm hover:shadow-md transition">
               <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center text-2xl mb-4">💰</div>
-              <h3 className="font-bold text-lg text-blue-900 mb-2">コスト効率の良いIT導入</h3>
+              <h3 className="font-bold text-lg text-blue-900 mb-2">３.コスト効率の良いIT導入</h3>
               <p className="text-sm text-zinc-600 leading-relaxed">
                 公的支援制度（補助金など）の適用可能性を診断し、申請を支援します。最新技術を、導入しやすい現実的な価格で提供します。
               </p>
