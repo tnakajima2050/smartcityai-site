@@ -121,7 +121,7 @@ export default function CombinedPage() {
           onClick={() => setLang(lang === 'jp' ? 'en' : 'jp')}
           className="px-6 py-3 bg-blue-600 text-white font-bold rounded-full shadow-2xl hover:bg-blue-700 transition transform hover:scale-105 active:scale-95 border-2 border-white"
         >
-          {lang === 'jp' ? 'English (Specialized for Palantir)' : '日本語サイトへ戻る'}
+          {lang === 'jp' ? 'English' : '日本語サイトへ戻る'}
         </button>
       </div>
 
