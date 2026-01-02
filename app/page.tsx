@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 
 // ------------------------------------------------------------------
-// ▼ データ定義：メモ帳(page.tsx日本語.txt)の内容を100%完全移植
+// ▼ データ定義：メモ帳(page.tsx日本語.txt)から100%完全移植
 // ------------------------------------------------------------------
 const useCases = [
   {
@@ -13,78 +13,71 @@ const useCases = [
     detail: "MITの研究で実証された生成AI技術を活用。「ゼロから考える時間」をなくし、入力と転記に特化させることで、作成業務を自動化します。",
     benefit: (
       <>
-        生成AIにより文書作成時間を<span className="font-bold border-b border-emerald-500/50">40%短縮</span>(※1)し、最大<span className="font-bold border-b border-emerald-500/50">90%の工数削減</span>(※2)を実現します。
+        生成AIにより文書作成時間を<span className="font-bold border-b border-emerald-500/50">40%短縮</span>(※1)し、本システムの活用で最大<span className="font-bold border-b border-emerald-500/50">90%の工数削減</span>(※2)を実現します。
         <span className="block mt-3 pt-2 border-t border-emerald-200/50 text-[10px] text-emerald-800/70 font-normal leading-snug">
           ※1 Noy, S., & Zhang, W. (2023). Science. ※2 [当社試算] 従来60分の業務を5分に短縮した場合。
         </span>
       </>
     ),
     visual: (
-      <div className="h-full bg-slate-50 flex flex-col rounded-lg border border-zinc-200 p-4 font-sans relative overflow-hidden">
+      <div className="h-full bg-slate-50 flex flex-col rounded-lg border border-zinc-200 p-4 relative overflow-hidden">
         <div className="text-center font-bold text-zinc-800 mb-6 md:mb-12 z-10 relative md:text-xl">劇的ビフォーアフター</div>
         <div className="flex-grow flex items-center justify-around relative z-10 px-2 pb-4">
           <div className="flex flex-col items-center w-1/3">
             <div className="text-xs md:text-base font-bold text-red-500 mb-2 bg-red-50 px-2 py-0.5 rounded-full">Before (60分)</div>
             <div className="relative w-24 h-32 md:w-48 md:h-64 flex items-center justify-center">
                <div className="absolute w-20 h-28 md:w-40 md:h-56 bg-white border border-zinc-300 shadow-sm transform -rotate-12 translate-x-2 translate-y-2"></div>
-               <div className="absolute w-20 h-28 md:w-40 md:h-56 bg-red-50 border-2 border-red-400 shadow-lg transform rotate-2 z-30 flex flex-col items-center justify-center p-1">
+               <div className="absolute w-20 h-28 md:w-40 md:h-56 bg-red-50 border-2 border-red-400 shadow-lg transform rotate-2 z-30 flex flex-col items-center justify-center p-1 text-center">
                   <div className="text-3xl md:text-6xl mb-1">😫</div>
-                  <div className="text-[9px] md:text-sm font-bold text-red-600 text-center">手入力<br/>転記地獄</div>
+                  <div className="text-[9px] md:text-sm font-bold text-red-600">手入力<br/>転記地獄</div>
                </div>
             </div>
           </div>
           <div className="flex flex-col items-center justify-center z-40">
             <div className="text-3xl md:text-6xl text-zinc-300 animate-pulse">▶▶</div>
-            <div className="font-black text-xl md:text-4xl text-white bg-gradient-to-r from-red-500 to-emerald-500 px-3 py-1 rounded-lg shadow-xl animate-bounce">-90%</div>
+            <div className="font-black text-xl md:text-4xl text-white bg-gradient-to-r from-red-500 to-emerald-500 px-3 py-1 rounded-lg shadow-xl animate-bounce border-2 border-white">-90%</div>
           </div>
-          <div className="flex flex-col items-center w-1/3">
+          <div className="flex flex-col items-center w-1/3 text-center">
             <div className="text-xs md:text-base font-bold text-emerald-600 mb-2 bg-emerald-50 px-2 py-0.5 rounded-full">After (5分)</div>
             <div className="w-20 h-28 md:w-40 md:h-56 bg-gradient-to-br from-emerald-400 to-blue-500 rounded-xl shadow-lg flex flex-col items-center justify-center text-white z-30">
                <div className="text-4xl md:text-7xl mb-2">✨</div>
-               <div className="text-[10px] md:text-sm font-bold text-center">AI<br/>自動生成</div>
+               <div className="text-[10px] md:text-sm font-bold">AI自動生成</div>
             </div>
           </div>
         </div>
-        <div className="absolute inset-0 pointer-events-none opacity-5 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:16px_16px]"></div>
       </div>
     )
   },
   {
     id: 2, icon: "📦", title: "２．在庫・物流の自動チェック", target: "物流・製造・小売",
     desc: "カメラ映像やRFID解析で在庫管理を自動化。ヒューマンエラーを劇的に削減します。",
-    detail: "倉庫内のカメラ映像やRFIDをAIが解析。製品の数をカウントしたり、異常を検知します。",
+    detail: "倉庫内のカメラ映像やRFID（ICタグ）をAIが解析。製品の数をカウントしたり、異常を検知します。",
     benefit: (
       <>
-        ヒューマンエラーを<span className="font-bold border-b border-emerald-500/50">37%から5%</span>(※1)に減らし、売上を最大<span className="font-bold border-b border-emerald-500/50">5.5%</span>(※2)向上させます。
+        人による間違いを<span className="font-bold border-b border-emerald-500/50">37%から5%</span>(※1)に減らし、売上を最大<span className="font-bold border-b border-emerald-500/50">5.5%</span>(※2)向上させます。
       </>
     ),
     visual: (
-      <div className="h-full bg-black rounded-lg overflow-hidden relative group">
+      <div className="h-full bg-black rounded-lg overflow-hidden relative">
         <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop" alt="Warehouse" className="w-full h-full object-cover opacity-60" />
         <div className="absolute inset-0 p-4 font-mono text-xs text-emerald-400">
           <div className="flex justify-between items-start"><div className="bg-black/70 px-2 py-1 border border-emerald-500/50">CAM-04</div><div className="animate-pulse">● REC</div></div>
           <div className="absolute top-[20%] left-[10%] w-[15%] h-[20%] border-2 border-emerald-400 bg-emerald-400/10 p-1 flex justify-between items-start">
              <span className="bg-emerald-600 text-white text-[9px] px-1">BOX #4021</span><span>99%</span>
           </div>
-          <div className="absolute bottom-0 left-0 w-full bg-black/80 border-t border-zinc-700 p-3 flex justify-around text-center text-white">
-            <div><div className="text-[10px] text-zinc-400">TOTAL</div><div className="text-xl font-bold">842</div></div>
-            <div><div className="text-[10px] text-zinc-400">STATUS</div><div className="text-xl font-bold text-emerald-400">OK</div></div>
-          </div>
         </div>
       </div>
     )
   },
-  { id: 3, icon: "📞", title: "３．高度な顧客対応の自動化", target: "営業・CS", desc: "NLP技術で電話やメールの一次対応を自動化。", detail: "顧客からの電話音声をテキスト化し、社内FAQから最適な回答をAIが生成します。", benefit: "24時間365日の対応が可能になり、夜間休日の機会損失を防ぎます。", visual: <div className="h-full bg-slate-100 p-4 flex items-center justify-center text-slate-400 italic">Chat System View (Simplified)</div> },
-  { id: 4, icon: "🚨", title: "４．設備故障の予知・検知", target: "製造・ビル管理", desc: "異音や振動データから故障の予兆を察知。", detail: "熟練工が「音」で判断していた異常をAIが数値化。ライン停止前にアラートを出します。", benefit: "予備保全により、計画的なメンテナンスを実現します。", visual: <div className="h-full bg-zinc-900 p-4 flex items-center justify-center text-emerald-500 font-mono">Sensory Analysis System</div> },
-  { id: 5, icon: "🧾", title: "５．経理・仕訳業務の自動化", target: "経理・総務", desc: "領収書読み取りと勘定科目の自動仕訳。", detail: "OCRとAIを組み合わせ、会計ソフトへの入力を自動化します。", benefit: "月末の経理負担を劇的に軽減します。", visual: <div className="h-full bg-slate-50 p-4 flex items-center justify-center text-blue-500 font-bold">Accounting Automation View</div> },
-  { id: 6, icon: "🔎", title: "６．社内ナレッジのAI検索", target: "全業種", desc: "社内のバラバラな資料を統合し、対話形式で検索。", detail: "社内版ChatGPT環境を構築。質問するだけでマニュアルから回答が得られます。", benefit: "探し物の時間をゼロにします。", visual: <div className="h-full bg-white p-4 flex items-center justify-center text-slate-300">Knowledge Search Interface</div> }
+  { id: 3, icon: "📞", title: "３．高度な顧客対応の自動化", target: "営業・CS", desc: "NLP技術で電話やメールの一次対応を自動化。", detail: "顧客からの電話音声をテキスト化し、社内FAQから最適な回答をAIが生成します。", benefit: "24時間365日の対応が可能になり、夜間休日の機会損失を防ぎます。", visual: <div className="h-full bg-slate-100 p-4 flex items-center justify-center text-slate-400 italic font-bold">Chat UI Mockup</div> },
+  { id: 4, icon: "🚨", title: "４．設備故障の予知・検知", target: "製造・ビル管理", desc: "異音や振動データから故障の予兆を察知。", detail: "熟練工が判断していた異常をAIが数値化。ライン停止前にアラートを出します。", benefit: "予期せぬダウンタイムを回避し、計画的なメンテナンスを実現します。", visual: <div className="h-full bg-zinc-900 p-4 flex items-center justify-center text-emerald-500 font-mono">Sensory Analysis System</div> },
+  { id: 5, icon: "🧾", title: "５．経理・仕訳業務の自動化", target: "経理・総務", desc: "領収書読み取りと勘定科目の自動仕訳。", detail: "OCRとAIを組み合わせ、バラバラな請求書を読み取り、会計ソフトへ入力します。", benefit: "手入力の手間をなくし、月末の経理負担を劇的に軽減します。", visual: <div className="h-full bg-slate-50 p-4 flex items-center justify-center text-blue-500 font-bold">Accounting Automation View</div> },
+  { id: 6, icon: "🔎", title: "６．社内ナレッジのAI検索", target: "全業種", desc: "社内のバラバラな資料を統合し、対話形式で検索。", detail: "社内版ChatGPT環境を構築。質問するだけでマニュアルから回答が得られます。", benefit: "「あの資料どこだっけ？」という時間をゼロにします。", visual: <div className="h-full bg-white p-4 flex items-center justify-center text-slate-300 font-bold">Knowledge Search Interface</div> }
 ];
 
 const faqs = [
   { q: "AIの知識が全くなくても大丈夫ですか？", answer: "はい、全く問題ありません。専門知識は一切不要です。", detail: "技術的な選定、開発、運用はすべて弊社が担当します。" },
-  { q: "費用はどのくらいかかりますか？", answer: "スモールスタートを推奨しており、数十万円からのプランもございます。", detail: "IT導入補助金などの公的支援の申請支援も行います。" },
-  { q: "既存のシステムと連携できますか？", answer: "はい、可能です。現在お使いのシステムと柔軟に連携します。", detail: "kintone、Salesforce、LINEなど既存のツールを活かせます。" },
-  { q: "開発期間はどのくらいですか？", answer: "最短2週間〜1ヶ月程度でプロトタイプをご提示可能です。", detail: "早期に動くものを触っていただき、フィードバックを反映させます。" }
+  { q: "費用はどのくらいかかりますか？", answer: "スモールスタートを推奨しており、数十万円からのプランもございます。", detail: "IT導入補助金などの公的支援について、申請支援も行います。" }
 ];
 
 export default function Home() {
@@ -95,7 +88,7 @@ export default function Home() {
 
   return (
     <div className="relative">
-      {/* 言語切り替えボタン */}
+      {/* 1. 言語切り替えボタン */}
       <div className="fixed top-5 right-5 z-[9999]">
         <button 
           onClick={() => setLang(lang === 'jp' ? 'en' : 'jp')}
@@ -112,7 +105,7 @@ export default function Home() {
         <main className="min-h-screen bg-zinc-50 text-zinc-900 font-sans">
           <div className="mx-auto flex min-h-screen max-w-5xl flex-col px-6 py-16">
             
-            {/* 1. ヒーローセクション */}
+            {/* ヒーローセクション */}
             <header className="mb-20 border-b border-zinc-200 pb-12">
               <div className="flex items-center space-x-3 mb-8">
                 <Image src="/logo.png" alt="Smart City AI LLC" width={160} height={50} className="h-auto w-24 sm:w-32" priority />
@@ -123,43 +116,29 @@ export default function Home() {
                 <span className="text-emerald-600">生産性革命</span>で未来を創る
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-700">
-                「AIを使いたいが、何から始めればいいかわからない」経営者様の悩みを、確かな技術とスモールスタート戦略で解決します。
+                「AIを使いたいが、何から始めればいいかわからない」経営者様の悩みを解決します。高額な投資は不要。まずは成果が出るか、小さな実験から始めましょう。
               </p>
-              <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                <button onClick={() => setIsCalendarOpen(true)} className="rounded-lg bg-emerald-600 px-8 py-4 text-white font-bold shadow-xl transition hover:bg-emerald-700 hover:-translate-y-0.5">
-                  まずは無料相談で可能性を探る →
-                </button>
+              <div className="mt-8">
+                <button onClick={() => setIsCalendarOpen(true)} className="rounded-lg bg-emerald-600 px-8 py-4 text-white font-bold shadow-xl transition hover:bg-emerald-700">まずは無料相談で可能性を探る →</button>
               </div>
             </header>
 
-            {/* 2. 3つの強み */}
-            <section className="mb-24">
-              <div className="text-center mb-10"><h2 className="text-sm font-bold text-emerald-600 uppercase tracking-widest">Why Us</h2><h3 className="text-2xl font-bold text-blue-900 mt-2">Smart City AIが選ばれる3つの理由</h3></div>
-              <div className="grid gap-8 md:grid-cols-3">
-                <div className="bg-white p-6 rounded-xl border border-blue-100 shadow-sm">🎯 １.御社専用のオーダーメイド</div>
-                <div className="bg-white p-6 rounded-xl border border-blue-100 shadow-sm">✨ ２.リスク最小限のPoC開発</div>
-                <div className="bg-white p-6 rounded-xl border border-blue-100 shadow-sm">💰 ３.コスト効率の良いIT導入</div>
-              </div>
-            </section>
-
-            {/* 3. 導入の流れ (矢印アニメーションを含む全内容) */}
+            {/* 導入の流れ (矢印アニメーション含む) */}
             <section className="mb-24 bg-blue-50/50 -mx-6 px-6 py-16">
-              <div className="max-w-5xl mx-auto">
-                <div className="text-center mb-12">
-                  <h2 className="text-sm font-bold text-blue-600 uppercase tracking-widest">Process</h2>
-                  <h3 className="text-2xl font-bold text-blue-900 mt-2">ご相談から導入までの流れ</h3>
-                </div>
-                <div className="grid gap-16 md:grid-cols-4 md:gap-8 relative">
+              <div className="max-w-5xl mx-auto text-center">
+                <h2 className="text-sm font-bold text-blue-600 uppercase tracking-widest mb-2">Process</h2>
+                <h3 className="text-2xl font-bold text-blue-900 mb-12">ご相談から導入までの流れ</h3>
+                <div className="grid gap-16 md:grid-cols-4 md:gap-8 relative text-left">
                   {[
-                    { s: "01", t: "ヒアリング", d: "現状の業務課題や理想をお聞かせください。" },
-                    { s: "02", t: "ご提案・PoC", d: "解決策をご提案。必要に応じて試作版を作成します。" },
-                    { s: "03", t: "本開発・実装", d: "実際の業務で使えるシステムを開発・導入します。" },
-                    { s: "04", t: "運用・サポート", d: "導入後の改善や、使い方のサポートも継続します。" },
+                    { s: "01", t: "ヒアリング", d: "現状の課題や理想をお聞かせください。" },
+                    { s: "02", t: "ご提案・PoC", d: "解決策をご提案。試作版で効果を検証します。" },
+                    { s: "03", t: "本開発・実装", d: "業務で使えるシステムを開発・導入します。" },
+                    { s: "04", t: "運用・サポート", d: "導入後の使い方のサポートも継続します。" },
                   ].map((item, i) => (
                     <div key={i} className="relative bg-white p-5 rounded-lg border border-blue-100 shadow-sm z-10">
                       <span className="text-4xl font-black text-blue-100 absolute top-2 right-4">{item.s}</span>
                       <h4 className="font-bold text-blue-900 relative z-10">{item.t}</h4>
-                      <p className="text-xs text-zinc-600 mt-2 leading-5">{item.d}</p>
+                      <p className="text-xs text-zinc-600 mt-2 relative z-10">{item.d}</p>
                       {i < 3 && (
                         <div className="hidden md:flex absolute top-1/2 -right-10 transform -translate-y-1/2 text-blue-300">
                           <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9h11V4l8 8-8 8v-5H3V9z" /></svg>
@@ -171,7 +150,7 @@ export default function Home() {
               </div>
             </section>
 
-            {/* 4. 活用事例 */}
+            {/* 活用事例 */}
             <section className="mb-24">
               <div className="text-center mb-12"><h2 className="text-sm font-bold text-emerald-600 uppercase tracking-widest">Solutions</h2><h3 className="text-2xl font-bold text-blue-900 mt-2">AI導入で解決できる 6つの業務課題</h3></div>
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -180,45 +159,16 @@ export default function Home() {
                     <div className="flex justify-between items-start mb-4"><span className="text-4xl">{item.icon}</span><span className="text-xs font-semibold bg-zinc-100 px-2 py-1 rounded">{item.target}</span></div>
                     <h3 className="text-lg font-bold text-zinc-900 group-hover:text-blue-700 transition">{item.title}</h3>
                     <p className="text-sm text-zinc-500 mt-2 flex-grow">{item.desc}</p>
-                    <div className="mt-4 text-sm font-bold text-blue-600">仕組み・デモ画面を見る →</div>
+                    <div className="mt-4 text-sm font-bold text-blue-600 flex items-center">仕組み・デモ画面を見る →</div>
                   </button>
                 ))}
               </div>
             </section>
 
-            {/* 5. FAQ */}
-            <section className="mb-24 max-w-3xl mx-auto w-full text-center">
-              <h2 className="text-2xl font-bold text-blue-900 mb-10">よくあるご質問</h2>
-              <div className="space-y-4">
-                {faqs.map((faq, index) => (
-                  <div key={index} className="border border-zinc-200 rounded-lg bg-white overflow-hidden shadow-sm text-left">
-                    <button onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)} className="w-full flex justify-between p-5 bg-zinc-50 hover:bg-zinc-100 transition">
-                      <span className="font-bold text-zinc-800 text-sm">Q. {faq.q}</span>
-                      <span className={`transform transition-transform ${openFaqIndex === index ? 'rotate-180' : ''}`}>▼</span>
-                    </button>
-                    {openFaqIndex === index && (
-                      <div className="p-6 border-t border-zinc-200 bg-white">
-                        <p className="text-base font-bold text-emerald-700 mb-4">A. {faq.answer}</p>
-                        <p className="text-sm text-zinc-600 leading-relaxed">{faq.detail}</p>
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            {/* 6. メッセージ & 詳細フッター */}
-            <section className="mb-20 bg-zinc-900 text-zinc-300 rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-8">
-              <div className="flex-1">
-                <h3 className="text-2xl font-bold text-white mb-4">日本の生産性を、AIで底上げする。</h3>
-                <p className="text-sm leading-relaxed mb-6">AIは人手不足に悩む企業にこそ、その恩恵が必要です。デジタルパートナーとして伴走します。</p>
-              </div>
-              <div className="w-24 h-24 bg-zinc-800 rounded-full flex items-center justify-center border-2 border-zinc-700 text-4xl">🤝</div>
-            </section>
-
-            <footer className="border-t border-zinc-200 pt-10 pb-6 text-zinc-600">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
-                <div><h3 className="text-sm font-bold text-zinc-900 mb-3 uppercase">Smart City AI LLC</h3><p className="text-xs">横浜を拠点に、AI導入・DX推進をサポートしています。</p></div>
+            {/* 3カラム詳細フッター */}
+            <footer className="mt-auto border-t border-zinc-200 pt-10 pb-6 text-zinc-600">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10 text-left">
+                <div><h3 className="text-sm font-bold text-zinc-900 mb-3 uppercase">Smart City AI LLC</h3><p className="text-xs">横浜を拠点に、日本全国の企業のAI導入・DX推進をサポートしています。</p></div>
                 <div><h3 className="text-sm font-bold text-zinc-900 mb-3 uppercase">Menu</h3><ul className="text-sm space-y-2"><li>ホーム</li><li>無料相談・お問い合わせ</li></ul></div>
                 <div>
                   <h3 className="text-sm font-bold text-zinc-900 mb-3 uppercase">Contact</h3>
@@ -230,19 +180,21 @@ export default function Home() {
             </footer>
           </div>
 
-          {/* モーダル & カレンダー */}
+          {/* モーダル表示 */}
           {selectedCase && (
             <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" onClick={() => setSelectedCase(null)}>
               <div className="bg-white rounded-2xl shadow-2xl w-full max-w-7xl h-[90vh] overflow-hidden flex flex-col md:flex-row" onClick={(e) => e.stopPropagation()}>
                 <div className="w-full md:w-[70%] bg-zinc-900 p-4">{selectedCase.visual}</div>
                 <div className="w-full md:w-[30%] p-8 overflow-y-auto">
                   <h3 className="text-2xl font-bold mb-4">{selectedCase.title}</h3>
-                  <p className="text-sm text-zinc-600 mb-6 leading-relaxed">{selectedCase.detail}</p>
+                  <p className="text-sm text-zinc-600 mb-6">{selectedCase.detail}</p>
                   <div className="bg-emerald-50 p-4 rounded-xl border border-emerald-100 mb-6"><h4 className="text-xs font-bold text-emerald-700 mb-2 uppercase">✨ Benefit</h4><div className="text-emerald-900 text-sm leading-relaxed">{selectedCase.benefit}</div></div>
-                  <button onClick={() => { setSelectedCase(null); setIsCalendarOpen(true); }} className="w-full bg-blue-600 text-white font-bold py-4 rounded-xl shadow-lg hover:bg-blue-700">無料相談を申し込む</button>
+                  <button onClick={() => { setSelectedCase(null); setIsCalendarOpen(true); }} className="w-full bg-blue-600 text-white font-bold py-4 rounded-xl shadow-lg">無料相談を申し込む</button>
                 </div>
               </div>
             </div>
           )}
           {isCalendarOpen && (
-            <div className="fixed inset-0 z-[10000] flex items-center justify-center p-
+            <div className="fixed inset-0 z-[10000] flex items-center justify-center p-0 md:p-4 bg-black/80 backdrop-blur-sm" onClick={() => setIsCalendarOpen(false)}>
+              <div className="bg-white md:rounded-lg shadow-2xl w-full max-w-5xl h-full md:h-[90vh] overflow-hidden flex flex-col relative" onClick={(e) => e.stopPropagation()}>
+                <div className="bg-emerald-600 text-white p-4 flex justify-between items-center shadow-md"><div className="font-bold text-lg flex items-center gap-2">📅 無料相談 予約カレンダー</div><button onClick={() => setIsCalendarOpen(false)} className="bg-
